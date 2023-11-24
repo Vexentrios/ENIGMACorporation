@@ -36,7 +36,7 @@ public class FenceUserSystem : MonoBehaviour
     int setFenceLevel;
     public static string wordFence;
     public static int decryptedMessagesLevelOne = 0;
-    int goal = 5;
+    int goal = 7;
     int hideTimer;
 
     void Start()
@@ -45,7 +45,7 @@ public class FenceUserSystem : MonoBehaviour
         FenceApp.SetActive(false);
         TimePanel.SetActive(false);
         ProgressBar.value = (float)decryptedMessagesLevelOne / (float)goal; 
-        ProgressValue.text = (ProgressBar.value * 100).ToString() + "%";
+        ProgressValue.text = Mathf.RoundToInt(ProgressBar.value * 100).ToString() + "%";
 
         if(wordFence == null || wordFence == "")
             FenceEncryptFunction();
@@ -75,37 +75,48 @@ public class FenceUserSystem : MonoBehaviour
 
     public void FenceEncryptFunction()
     {
-        wordFence = PlainWords.FenceWords[Random.Range(0, PlainWords.FenceWords.Length - 1)];
-        int randomLevel = Random.Range(3, 6);
-        string fencedWord = "";
-
-        int index;
-        int[] jump = {(randomLevel - 3) + randomLevel, -1};
-        int jumpOrder = 0;
-        bool swap = false;
-
-        for (int f = 0; f < randomLevel; f++)
+        if(PlainWords.FenceWords.Count > 0)
         {
-            index = f;
-            while (index <= wordFence.Length - 1)
+            int number = Random.Range(0, PlainWords.FenceWords.Count - 1);
+            wordFence = PlainWords.FenceWords[number];
+            PlainWords.FenceWords.RemoveAt(number);
+            int randomLevel = Random.Range(3, 6);
+            string fencedWord = "";
+
+            int index;
+            int[] jump = { (randomLevel - 3) + randomLevel, -1 };
+            int jumpOrder = 0;
+            bool swap = false;
+
+            for (int f = 0; f < randomLevel; f++)
             {
-                fencedWord += wordFence[index];
-                index += jump[jumpOrder] + 1;
-                if (swap)
-                    jumpOrder = (jumpOrder == 0 ? 1 : 0);
-            } 
-            jump[0] -= 2;
-            jump[1] += 2;
-            jumpOrder = 0;
-            if (jump[0] > 0 && jump[1] > 0 && swap == false)
-                swap = true;
-            else if(jump[0] < 0 && jump[1] > 0)
-            {
-                swap = false;
-                jumpOrder = 1;
+                index = f;
+                while (index <= wordFence.Length - 1)
+                {
+                    fencedWord += wordFence[index];
+                    index += jump[jumpOrder] + 1;
+                    if (swap)
+                        jumpOrder = (jumpOrder == 0 ? 1 : 0);
+                }
+                jump[0] -= 2;
+                jump[1] += 2;
+                jumpOrder = 0;
+                if (jump[0] > 0 && jump[1] > 0 && swap == false)
+                    swap = true;
+                else if (jump[0] < 0 && jump[1] > 0)
+                {
+                    swap = false;
+                    jumpOrder = 1;
+                }
             }
+            CipheredText.text = fencedWord.ToUpper();
         }
-        CipheredText.text = fencedWord.ToUpper();
+        else
+        {
+            CipheredText.text = "All Solved";
+            Solution.enabled = false;
+            SolveReportButton.enabled = false;
+        }
     }
 
     public void FenceDraw()
@@ -167,7 +178,7 @@ public class FenceUserSystem : MonoBehaviour
             if (decryptedMessagesLevelOne <= goal)
             {
                 ProgressBar.value = (float)decryptedMessagesLevelOne / (float)goal;
-                ProgressValue.text = (ProgressBar.value * 100).ToString() + "%";
+                ProgressValue.text = Mathf.RoundToInt(ProgressBar.value * 100).ToString() + "%";
             }
         }
         else

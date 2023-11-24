@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlainWords : MonoBehaviour
 {
-    public static string[] FenceWords = {"corporation","university", "security",
-                                         "technophobia", "scopophobia", "administration",
-                                         "disagreement", "acknowledgements", "disqualification",
-                                         "ciphers", "technology"};
+    public static List<string> FenceWords = new List<string> {"corporation","university", "security",
+                                                              "technophobia", "scopophobia", "administration",
+                                                              "disagreement", "acknowledgements", "disqualification",
+                                                              "ciphers", "technology"};
 }
