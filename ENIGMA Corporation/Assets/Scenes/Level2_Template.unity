@@ -123,83 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &46588004
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 46588005}
-  - component: {fileID: 46588007}
-  - component: {fileID: 46588006}
-  m_Layer: 5
-  m_Name: TimeTrialPanel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &46588005
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 46588004}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1213973975}
-  m_Father: {fileID: 294423149}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -737.5, y: -400}
-  m_SizeDelta: {x: -1625, y: -1000}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &46588006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 46588004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &46588007
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 46588004}
-  m_CullTransparentMesh: 1
 --- !u!1 &88384225
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,7 +454,6 @@ RectTransform:
   - {fileID: 421380750}
   - {fileID: 950857363}
   - {fileID: 327553529}
-  - {fileID: 46588005}
   - {fileID: 1283846203}
   - {fileID: 1366566314}
   m_Father: {fileID: 0}
@@ -870,19 +792,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 377946188}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 753527103}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: CloseFenceBreaker
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &377946188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1003,19 +913,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 399160633}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 753527103}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: OpenFenceBreaker
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &399160633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1293,19 +1191,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 431254697}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 753527103}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: ChangeFenceLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &431254697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1654,19 +1540,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 586615390}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 753527103}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: ChangeFenceLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &586615390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1783,7 +1657,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 1990781298}
   m_HandleRect: {fileID: 0}
@@ -1958,19 +1832,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 689629248}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 753527103}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: ChangeFenceLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &689629248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2285,7 +2147,6 @@ GameObject:
   - component: {fileID: 753527102}
   - component: {fileID: 753527101}
   - component: {fileID: 753527100}
-  - component: {fileID: 753527103}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2343,38 +2204,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &753527103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 753527099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 642669c0771cfaf4dacaff24cd549121, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FenceApp: {fileID: 728723272}
-  ReportsPanel: {fileID: 327553528}
-  TimePanel: {fileID: 46588004}
-  FenceLevelsButton:
-  - {fileID: 431254696}
-  - {fileID: 586615389}
-  - {fileID: 689629247}
-  - {fileID: 1636235156}
-  BuildFenceButton: {fileID: 1598001709}
-  CloseFenceAppButton: {fileID: 377946187}
-  SolveReportButton: {fileID: 946619845}
-  LogoutButton: {fileID: 1366566315}
-  EncryptedMessage: {fileID: 2126480871}
-  Solution: {fileID: 562553039}
-  ProgressValue: {fileID: 1885801723}
-  ResultMessage: {fileID: 1363426841}
-  Fence: {fileID: 1127436661}
-  CipheredText: {fileID: 981656024}
-  ProgressBar: {fileID: 622373892}
-  FenceAppIcon: {fileID: 399160633}
 --- !u!1 &892188509
 GameObject:
   m_ObjectHideFlags: 0
@@ -2409,8 +2238,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -10, y: 0}
+  m_AnchoredPosition: {x: -5, y: 0}
+  m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &900445271
 GameObject:
@@ -2651,19 +2480,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 946619846}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 753527103}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &946619846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3333,7 +3150,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 2
-  m_Text: 
+  m_Text: "T\n\t\tE\n\t\t\t\tS\n\t\t\t\t\t\tT\n\t\t\t\t\t\t\t\tI\t\t\t\tG\n\t\t\t\t\t\t\t\t\t\tN"
 --- !u!222 &1127436662
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3341,86 +3158,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1127436659}
-  m_CullTransparentMesh: 1
---- !u!1 &1213973974
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1213973975}
-  - component: {fileID: 1213973977}
-  - component: {fileID: 1213973976}
-  m_Layer: 5
-  m_Name: TimeLeft
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1213973975
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1213973974}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 46588005}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.5, y: 0}
-  m_SizeDelta: {x: 180, y: 60}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1213973976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1213973974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 62a9b09ea72e69b488fd932e51f3eefd, type: 3}
-    m_FontSize: 35
-    m_FontStyle: 1
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 50
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 03:00
---- !u!222 &1213973977
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1213973974}
   m_CullTransparentMesh: 1
 --- !u!1 &1262912883
 GameObject:
@@ -3536,7 +3273,7 @@ RectTransform:
   - {fileID: 622373891}
   - {fileID: 1885801722}
   m_Father: {fileID: 294423149}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3688,7 +3425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1363426840
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3732,7 +3469,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 62a9b09ea72e69b488fd932e51f3eefd, type: 3}
     m_FontSize: 30
-    m_FontStyle: 3
+    m_FontStyle: 2
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
@@ -3784,7 +3521,7 @@ RectTransform:
   m_Children:
   - {fileID: 1262912884}
   m_Father: {fileID: 294423149}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3834,19 +3571,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1366566316}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 753527103}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: LogOutFunc
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1366566316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4169,19 +3894,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1598001710}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 753527103}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: FenceDraw
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1598001710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4303,19 +4016,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1636235157}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 753527103}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: ChangeFenceLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1636235157
 MonoBehaviour:
   m_ObjectHideFlags: 0
