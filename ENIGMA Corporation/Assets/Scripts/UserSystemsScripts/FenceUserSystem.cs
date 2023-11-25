@@ -35,6 +35,7 @@ public class FenceUserSystem : MonoBehaviour
 
     int setFenceLevel;
     public static string wordFence;
+    public static string fencedWord;
     public static int decryptedMessagesLevelOne = 0;
     int goal = 7;
     int hideTimer;
@@ -47,8 +48,10 @@ public class FenceUserSystem : MonoBehaviour
         ProgressBar.value = (float)decryptedMessagesLevelOne / (float)goal; 
         ProgressValue.text = Mathf.RoundToInt(ProgressBar.value * 100).ToString() + "%";
 
-        if(wordFence == null || wordFence == "")
+        if (wordFence == null || wordFence == "")
             FenceEncryptFunction();
+        else
+            CipheredText.text = fencedWord.ToUpper();
     }
 
     public void OpenFenceBreaker()
@@ -81,7 +84,7 @@ public class FenceUserSystem : MonoBehaviour
             wordFence = PlainWords.FenceWords[number];
             PlainWords.FenceWords.RemoveAt(number);
             int randomLevel = Random.Range(3, 6);
-            string fencedWord = "";
+            fencedWord = "";
 
             int index;
             int[] jump = { (randomLevel - 3) + randomLevel, -1 };
