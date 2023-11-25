@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using static PlainWords;
 
 public class MainMenuScript : MonoBehaviour
 { 
@@ -46,6 +47,12 @@ public class MainMenuScript : MonoBehaviour
 
     public void StartGame()
     {
+        PlainWords.FenceWords.AddRange(PlainWords.FenceWordDataBase);
+
+        PlainWords.Caesar_AtBash_Words.AddRange(PlainWords.Caesar_AtBash_WordDataBase);
+        PlainWords.CaesarCodes = 10;
+        PlainWords.AtBashCodes = 10;
+
         SceneManager.LoadSceneAsync("Game_AllUsers");
     }
 
