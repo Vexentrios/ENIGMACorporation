@@ -9,7 +9,6 @@ public class FenceUserSystem : MonoBehaviour
 {
     [Header("Panels")]
     [SerializeField] private GameObject FenceApp;
-    [SerializeField] private GameObject ReportsPanel;
     [SerializeField] private GameObject TimePanel;
     [Header("-------------------------------------------------")]
     [Header("Buttons")]
@@ -34,26 +33,29 @@ public class FenceUserSystem : MonoBehaviour
     [SerializeField] private Image FenceAppIcon;
 
     int setFenceLevel;
-    public static string wordFence;
+    public static string wordFence;         //Answer which need to be given
+    public static string fencedWord;        //Encrypted answer word container
     public static int decryptedMessagesLevelOne = 0;
     int goal = 7;
     int hideTimer;
 
     void Start()
     {
-        FenceAppIcon.gameObject.SetActive(true);
+        FenceAppIcon.GetComponent<Button>().enabled = true;
         FenceApp.SetActive(false);
         TimePanel.SetActive(false);
         ProgressBar.value = (float)decryptedMessagesLevelOne / (float)goal; 
         ProgressValue.text = Mathf.RoundToInt(ProgressBar.value * 100).ToString() + "%";
 
-        if(wordFence == null || wordFence == "")
+        if (wordFence == null || wordFence == "")
             FenceEncryptFunction();
+        else
+            CipheredText.text = fencedWord.ToUpper();
     }
 
     public void OpenFenceBreaker()
     {
-        FenceAppIcon.gameObject.SetActive(false);
+        FenceAppIcon.GetComponent<Button>().enabled = false;
         FenceApp.SetActive(true);
         ChangeFenceLevel(0);
         EncryptedMessage.text = "";
@@ -63,7 +65,7 @@ public class FenceUserSystem : MonoBehaviour
     public void CloseFenceBreaker()
     {
         FenceApp.SetActive(false);
-        FenceAppIcon.gameObject.SetActive(true);
+        FenceAppIcon.GetComponent<Button>().enabled = true;
     }
 
     public void ChangeFenceLevel(int levels)
@@ -81,7 +83,7 @@ public class FenceUserSystem : MonoBehaviour
             wordFence = PlainWords.FenceWords[number];
             PlainWords.FenceWords.RemoveAt(number);
             int randomLevel = Random.Range(3, 6);
-            string fencedWord = "";
+            fencedWord = "";
 
             int index;
             int[] jump = { (randomLevel - 3) + randomLevel, -1 };
