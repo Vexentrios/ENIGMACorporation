@@ -9,7 +9,6 @@ public class FenceUserSystem : MonoBehaviour
 {
     [Header("Panels")]
     [SerializeField] private GameObject FenceApp;
-    [SerializeField] private GameObject ReportsPanel;
     [SerializeField] private GameObject TimePanel;
     [Header("-------------------------------------------------")]
     [Header("Buttons")]
@@ -34,15 +33,15 @@ public class FenceUserSystem : MonoBehaviour
     [SerializeField] private Image FenceAppIcon;
 
     int setFenceLevel;
-    public static string wordFence;
-    public static string fencedWord;
+    public static string wordFence;         //Answer which need to be given
+    public static string fencedWord;        //Encrypted answer word container
     public static int decryptedMessagesLevelOne = 0;
     int goal = 7;
     int hideTimer;
 
     void Start()
     {
-        FenceAppIcon.gameObject.SetActive(true);
+        FenceAppIcon.GetComponent<Button>().enabled = true;
         FenceApp.SetActive(false);
         TimePanel.SetActive(false);
         ProgressBar.value = (float)decryptedMessagesLevelOne / (float)goal; 
@@ -56,7 +55,7 @@ public class FenceUserSystem : MonoBehaviour
 
     public void OpenFenceBreaker()
     {
-        FenceAppIcon.gameObject.SetActive(false);
+        FenceAppIcon.GetComponent<Button>().enabled = false;
         FenceApp.SetActive(true);
         ChangeFenceLevel(0);
         EncryptedMessage.text = "";
@@ -66,7 +65,7 @@ public class FenceUserSystem : MonoBehaviour
     public void CloseFenceBreaker()
     {
         FenceApp.SetActive(false);
-        FenceAppIcon.gameObject.SetActive(true);
+        FenceAppIcon.GetComponent<Button>().enabled = true;
     }
 
     public void ChangeFenceLevel(int levels)
