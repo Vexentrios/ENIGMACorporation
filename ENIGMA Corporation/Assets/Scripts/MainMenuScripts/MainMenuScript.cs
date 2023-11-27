@@ -50,8 +50,12 @@ public class MainMenuScript : MonoBehaviour
         PlainWords.FenceWords.AddRange(PlainWords.FenceWordDataBase);
 
         PlainWords.Caesar_AtBash_Words.AddRange(PlainWords.Caesar_AtBash_WordDataBase);
-        PlainWords.CaesarCodes = 10;
-        PlainWords.AtBashCodes = 10;
+        PlainWords.CaesarCodes = 4;
+        PlainWords.AtBashCodes = 6;
+
+        PlainWords.XOR_Morse_Words.AddRange(PlainWords.XOR_Morse_WordDataBase);
+        PlainWords.MorseCodes = 3;
+        PlainWords.XORCodes = 3;
 
         SceneManager.LoadSceneAsync("Game_AllUsers");
     }

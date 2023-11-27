@@ -32,7 +32,7 @@ public class CaesarUserSystem : MonoBehaviour
     public static string wordCaesar_AtBash;     //Answer which need to be given
     public static string caesar_atbashWord;     //Encrypted answer word container
     public static int decryptedMessagesLevelTwo = 0;
-    int goal = 12;
+    int goal = 10;
     int hideTimer;
 
     void Start()
@@ -76,16 +76,18 @@ public class CaesarUserSystem : MonoBehaviour
 
     public void Caesar_AtBash_EncryptFunction()
     {
-        if (PlainWords.Caesar_AtBash_Words.Count > 0)
+        ///THIS CONTENT IS MOVED TO FINAL VERSION
+        //if (PlainWords.Caesar_AtBash_Words.Count > 0)
+        if (PlainWords.Caesar_AtBash_Words.Count > 0 && decryptedMessagesLevelTwo != goal)
         {
-            int number = Random.Range(0, PlainWords.Caesar_AtBash_Words.Count - 1);
+            int number = Random.Range(0, PlainWords.Caesar_AtBash_Words.Count);
             wordCaesar_AtBash = PlainWords.Caesar_AtBash_Words[number].ToUpper();
             PlainWords.Caesar_AtBash_Words.RemoveAt(number);
             caesar_atbashWord = "";
 
             if (PlainWords.AtBashCodes > 0 && PlainWords.CaesarCodes > 0)
             {
-                int choice = Random.Range(0, 1);
+                int choice = Random.Range(0, 2);
                 if (choice == 0)
                     CaesarAlgorithm();
                 else
@@ -106,7 +108,7 @@ public class CaesarUserSystem : MonoBehaviour
 
     public void CaesarAlgorithm()
     {
-        int key = Random.Range(1, 25);
+        int key = Random.Range(1, 26);
         char letter;
 
         int index = 0;
@@ -152,6 +154,14 @@ public class CaesarUserSystem : MonoBehaviour
             {
                 ProgressBar.value = (float)decryptedMessagesLevelTwo / (float)goal;
                 ProgressValue.text = Mathf.RoundToInt(ProgressBar.value * 100).ToString() + "%";
+
+                ///THIS CONTENT IS MOVED TO FINAL VERSION
+                //if (decryptedMessagesLevelTwo == goal)
+                //{
+                //    PlainWords.CaesarCodes =7;
+                //    PlainWords.AtBashCodes = 3;
+                //    Caesar_AtBash_EncryptFunction();
+                //}
             }
         }
         else
