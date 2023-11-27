@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 302780227}
   - component: {fileID: 302780226}
   m_Layer: 5
-  m_Name: '@BASH!Name'
+  m_Name: ATBASHName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -376,7 +376,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '@BASH'
+  m_Text: '@BASH!'
 --- !u!222 &302780227
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -927,7 +927,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 9059d8b6148f003498bc844bcf167f4d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1928,7 +1928,7 @@ GameObject:
   - component: {fileID: 895839679}
   - component: {fileID: 895839678}
   m_Layer: 5
-  m_Name: '@BASH!Icon'
+  m_Name: ATBASHIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2030,7 +2030,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 315a6f4b78d0a1549b083002c9f56543, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2998,7 +2998,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 02d91dff4ae4a3141993bafb65a49ae0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3134,7 +3134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1184756595}
   m_Layer: 5
-  m_Name: EMPTY_@BASH!
+  m_Name: EMPTY_ATBASH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3252,7 +3252,7 @@ GameObject:
   - component: {fileID: 1232001875}
   - component: {fileID: 1232001874}
   m_Layer: 5
-  m_Name: Close@BASH!
+  m_Name: CloseATBASH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3841,7 +3841,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 9059d8b6148f003498bc844bcf167f4d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4023,7 +4023,7 @@ GameObject:
   - component: {fileID: 1751084547}
   - component: {fileID: 1751084546}
   m_Layer: 5
-  m_Name: '@BASH!App'
+  m_Name: ATBASHApp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4306,7 +4306,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 315a6f4b78d0a1549b083002c9f56543, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -1867,7 +1867,7 @@ GameObject:
   - component: {fileID: 377946188}
   - component: {fileID: 377946187}
   m_Layer: 5
-  m_Name: CloseX-1_OR_0
+  m_Name: CloseXOR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2215,7 +2215,7 @@ GameObject:
   - component: {fileID: 399160633}
   - component: {fileID: 399160632}
   m_Layer: 5
-  m_Name: X-1_OR_0Icon
+  m_Name: XORIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2971,6 +2971,7 @@ GameObject:
   - component: {fileID: 562553038}
   - component: {fileID: 562553041}
   - component: {fileID: 562553040}
+  - component: {fileID: 562553042}
   m_Layer: 5
   m_Name: InputDecrypted
   m_TagString: Untagged
@@ -3038,6 +3039,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 562553037}
   m_CullTransparentMesh: 1
+--- !u!114 &562553042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562553037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d199490a83bb2b844b9695cbf13b01ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 562553040}
+  m_TextComponent: {fileID: 583055707}
+  m_Placeholder: {fileID: 949954221}
+  m_ContentType: 0
+  m_InputType: 0
+  m_AsteriskChar: 42
+  m_KeyboardType: 0
+  m_LineType: 0
+  m_HideMobileInput: 0
+  m_CharacterValidation: 0
+  m_CharacterLimit: 16
+  m_OnSubmit:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDidEndEdit:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_CustomCaretColor: 0
+  m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
+  m_Text: 
+  m_CaretBlinkRate: 0.85
+  m_CaretWidth: 1
+  m_ReadOnly: 0
+  m_ShouldActivateOnSelect: 1
 --- !u!1 &570780645
 GameObject:
   m_ObjectHideFlags: 0
@@ -3488,7 +3557,7 @@ GameObject:
   - component: {fileID: 630081298}
   - component: {fileID: 630081297}
   m_Layer: 5
-  m_Name: AppName
+  m_Name: XORAppName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4169,7 +4238,7 @@ GameObject:
   - component: {fileID: 728723275}
   - component: {fileID: 728723274}
   m_Layer: 5
-  m_Name: X-1_OR_0App
+  m_Name: XORApp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4254,7 +4323,7 @@ GameObject:
   - component: {fileID: 732387739}
   - component: {fileID: 732387738}
   m_Layer: 5
-  m_Name: AppName
+  m_Name: MorseAppName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4333,6 +4402,7 @@ GameObject:
   - component: {fileID: 753527102}
   - component: {fileID: 753527101}
   - component: {fileID: 753527100}
+  - component: {fileID: 753527103}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -4390,6 +4460,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &753527103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753527099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6539eb19e70b9ca4b913a3461d20e004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  XORApp: {fileID: 728723272}
+  MorseApp: {fileID: 1064231011}
+  MorseSymbolButtons:
+  - {fileID: 721184831}
+  - {fileID: 879508744}
+  - {fileID: 177644297}
+  - {fileID: 597636182}
+  - {fileID: 554348713}
+  - {fileID: 1120589805}
+  - {fileID: 908885100}
+  - {fileID: 1098735100}
+  - {fileID: 1846121936}
+  - {fileID: 545636497}
+  - {fileID: 812991283}
+  - {fileID: 67559384}
+  XORKeysButton:
+  - {fileID: 1459751724}
+  - {fileID: 1943206552}
+  - {fileID: 630310119}
+  - {fileID: 381779798}
+  CloseMorseAppButton: {fileID: 246347026}
+  CloseXORAppButton: {fileID: 377946187}
+  SolveReportButton: {fileID: 570780647}
+  LogoutButton: {fileID: 1366566315}
+  XOREncryptedMessage: {fileID: 302238053}
+  Notepad: {fileID: 1099183545}
+  Solution: {fileID: 562553042}
+  ProgressValue: {fileID: 1885801723}
+  ResultMessage: {fileID: 1363426841}
+  CipheredTextLength: {fileID: 981656024}
+  ProgressBar: {fileID: 622373892}
+  MorseAppIcon: {fileID: 895839679}
+  XORAppIcon: {fileID: 399160633}
+  Lights:
+  - {fileID: 642203745}
+  - {fileID: 1819199301}
+  - {fileID: 1963519405}
 --- !u!1 &812991281
 GameObject:
   m_ObjectHideFlags: 0
@@ -4665,7 +4784,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 1
@@ -6280,7 +6399,7 @@ MonoBehaviour:
   m_LineType: 0
   m_HideMobileInput: 0
   m_CharacterValidation: 0
-  m_CharacterLimit: 16
+  m_CharacterLimit: 200
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -6963,7 +7082,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 02d91dff4ae4a3141993bafb65a49ae0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7443,7 +7562,7 @@ GameObject:
   - component: {fileID: 1403517690}
   - component: {fileID: 1403517689}
   m_Layer: 5
-  m_Name: AppIcon
+  m_Name: XORAppIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7653,7 +7772,7 @@ GameObject:
   - component: {fileID: 1473784205}
   - component: {fileID: 1473784204}
   m_Layer: 5
-  m_Name: AppIcon
+  m_Name: MorseAppIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9865,7 +9984,7 @@ GameObject:
   - component: {fileID: 2081354520}
   - component: {fileID: 2081354519}
   m_Layer: 5
-  m_Name: X-1_OR_0Name
+  m_Name: XORName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
