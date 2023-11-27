@@ -77,12 +77,14 @@ public class FenceUserSystem : MonoBehaviour
 
     public void FenceEncryptFunction()
     {
-        if(PlainWords.FenceWords.Count > 0)
+        ///THIS CONTENT IS MOVED TO FINAL VERSION
+        //if(PlainWords.FenceWords.Count > 0)
+        if (PlainWords.FenceWords.Count > 0 && decryptedMessagesLevelOne != goal)
         {
-            int number = Random.Range(0, PlainWords.FenceWords.Count - 1);
+            int number = Random.Range(0, PlainWords.FenceWords.Count);
             wordFence = PlainWords.FenceWords[number];
             PlainWords.FenceWords.RemoveAt(number);
-            int randomLevel = Random.Range(3, 6);
+            int randomLevel = Random.Range(3, 7);
             fencedWord = "";
 
             int index;
@@ -181,6 +183,13 @@ public class FenceUserSystem : MonoBehaviour
             {
                 ProgressBar.value = (float)decryptedMessagesLevelOne / (float)goal;
                 ProgressValue.text = Mathf.RoundToInt(ProgressBar.value * 100).ToString() + "%";
+
+                ///THIS CONTENT IS MOVED TO FINAL VERSION
+                //if (decryptedMessagesLevelThree == goal)
+                //{
+                //    goal = 11;
+                //    FenceEncryptFunction();
+                //}
             }
         }
         else

@@ -25,13 +25,16 @@ public class PlainWords : MonoBehaviour
     [Header("------------------------------------------------------")]
     [Header("XOR and Morse Words - Level 3")]
     [Header("------------------------------------------------------")]
+
+    public static int XORCodes = 3;
+    public static int MorseCodes = 3;
+
+    public enum encryptingMethods { XOR, Morse };
+
+    public static List<string> XOR_Morse_WordDataBase = new List<string> {"bow", "stern", "starboard", "port", "hull", "gunwale", "cleat", "rudder", "anchor", "cannon", "mast", "bridge", "keel", "bool", "string", "integer", "float", "double", "function", "class" };
     
-    public static int XORCodes;
-    public static int MorseCodes;
-    
-    public static List<string> XOR_Morse_WordDataBase = new List<string> {};
-    
-    public static List<string> XOR_Morse_Words = new List<string> {};
+    public static List<string> XOR_Morse_Words = new List<string> { "bow", "stern", "starboard", "bool", "string", "class" };
 
     //public static List<string> PLACEHOLDER = new List<string> { };
 }
+//"daniel"

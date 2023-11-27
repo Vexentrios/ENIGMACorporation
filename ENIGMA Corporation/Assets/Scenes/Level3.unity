@@ -207,14 +207,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: ChangeFenceLevel
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
+        m_MethodName: SetMorseButtons
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 11
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -370,7 +370,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -210, y: -280}
+  m_AnchoredPosition: {x: 210, y: -280}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &124265895
@@ -417,10 +417,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: ChangeFenceLevel
-        m_Mode: 3
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
+        m_MethodName: DecryptXOR
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -504,7 +504,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -120}
+  m_AnchoredPosition: {x: 0, y: -180}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &177644295
@@ -591,14 +591,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: ChangeFenceLevel
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
+        m_MethodName: SetMorseButtons
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -725,9 +725,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CaesarUserSystem, Assembly-CSharp
-        m_MethodName: CloseCaesarSpinner
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
+        m_MethodName: CloseMorseApp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -812,7 +812,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 210, y: -280}
+  m_AnchoredPosition: {x: -210, y: -280}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &288570346
@@ -859,10 +859,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: ChangeFenceLevel
-        m_Mode: 3
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
+        m_MethodName: ClearXORField
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -946,7 +946,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -120}
+  m_AnchoredPosition: {x: 0, y: -180}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &294423145
@@ -1151,7 +1151,7 @@ MonoBehaviour:
   m_LineType: 0
   m_HideMobileInput: 0
   m_CharacterValidation: 0
-  m_CharacterLimit: 16
+  m_CharacterLimit: 8
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -1358,7 +1358,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: DASH (_)
+  m_Text: DOT (.)
 --- !u!222 &307189122
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1685,7 +1685,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: DASH (_)
+  m_Text: DOT (.)
 --- !u!222 &346635479
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1938,9 +1938,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CaesarUserSystem, Assembly-CSharp
-        m_MethodName: CloseCaesarSpinner
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
+        m_MethodName: CloseXORApp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2072,14 +2072,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: ChangeFenceLevel
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
+        m_MethodName: ChangeXORKey
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2285,9 +2285,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CaesarUserSystem, Assembly-CSharp
-        m_MethodName: OpenCaesarSpinner
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
+        m_MethodName: OpenXORApp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2317,7 +2317,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f825bd063fbdc3c4a99a25e8c2e9c147, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2603,7 +2603,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: DOT (.)
+  m_Text: DASH (_)
 --- !u!222 &510209336
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2705,7 +2705,7 @@ GameObject:
   - component: {fileID: 545636498}
   - component: {fileID: 545636497}
   m_Layer: 5
-  m_Name: MorseDash
+  m_Name: MorseDot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2776,14 +2776,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: ChangeFenceLevel
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
+        m_MethodName: SetMorseButtons
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 9
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2839,7 +2839,7 @@ GameObject:
   - component: {fileID: 554348714}
   - component: {fileID: 554348713}
   m_Layer: 5
-  m_Name: MorseDot
+  m_Name: MorseDash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2910,14 +2910,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: ChangeFenceLevel
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
+        m_MethodName: SetMorseButtons
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3191,8 +3191,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CaesarUserSystem, Assembly-CSharp
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
         m_MethodName: SendSolutionReport
         m_Mode: 1
         m_Arguments:
@@ -3334,7 +3334,7 @@ GameObject:
   - component: {fileID: 597636183}
   - component: {fileID: 597636182}
   m_Layer: 5
-  m_Name: MorseDash
+  m_Name: MorseDot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3405,14 +3405,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: ChangeFenceLevel
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
+        m_MethodName: SetMorseButtons
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3709,14 +3709,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: ChangeFenceLevel
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
+        m_MethodName: ChangeXORKey
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3794,8 +3794,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 230}
-  m_SizeDelta: {x: 900, y: 100}
+  m_AnchoredPosition: {x: 0, y: 200}
+  m_SizeDelta: {x: 900, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &639473719
 MonoBehaviour:
@@ -3832,8 +3832,10 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Letters at Morse are made from <1, 4> dashes/dots.
 
-    Select corresponding
-    symbols by below buttons:'
+    All 3 orange lights
+    means, the end of message!
+
+    Select corresponding symbols by below buttons:'
 --- !u!222 &639473720
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3893,14 +3895,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f163e100a3b470d4dab7a7dd8f80569d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3989,7 +3991,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: DASH (_)
+  m_Text: DOT (.)
 --- !u!222 &678535047
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4105,7 +4107,7 @@ GameObject:
   - component: {fileID: 721184832}
   - component: {fileID: 721184831}
   m_Layer: 5
-  m_Name: MorseDash
+  m_Name: MorseDot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4176,9 +4178,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: ChangeFenceLevel
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
+        m_MethodName: SetMorseButtons
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4522,7 +4524,7 @@ GameObject:
   - component: {fileID: 812991284}
   - component: {fileID: 812991283}
   m_Layer: 5
-  m_Name: MorseDot
+  m_Name: MorseDash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4593,14 +4595,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: ChangeFenceLevel
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
+        m_MethodName: SetMorseButtons
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4701,7 +4703,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 57fd48411649e6e41bca5678fa6f76e7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4836,7 +4838,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 210, y: -280}
+  m_AnchoredPosition: {x: -210, y: -280}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &876732637
@@ -4883,10 +4885,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: ChangeFenceLevel
-        m_Mode: 3
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
+        m_MethodName: ResetMorseButtons
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4946,7 +4948,7 @@ GameObject:
   - component: {fileID: 879508745}
   - component: {fileID: 879508744}
   m_Layer: 5
-  m_Name: MorseDot
+  m_Name: MorseDash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5017,14 +5019,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: ChangeFenceLevel
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
+        m_MethodName: SetMorseButtons
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5187,9 +5189,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CaesarUserSystem, Assembly-CSharp
-        m_MethodName: OpenAtBASHSpinner
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
+        m_MethodName: OpenMorseApp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5219,7 +5221,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 00b0d47d4a4485b49ab650f700ad62a9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5330,7 +5332,7 @@ GameObject:
   - component: {fileID: 908885101}
   - component: {fileID: 908885100}
   m_Layer: 5
-  m_Name: MorseDash
+  m_Name: MorseDot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5401,14 +5403,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: ChangeFenceLevel
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
+        m_MethodName: SetMorseButtons
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5522,7 +5524,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: DOT (.)
+  m_Text: DASH (_)
 --- !u!222 &917855971
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5602,7 +5604,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: DASH (_)
+  m_Text: DOT (.)
 --- !u!222 &931059938
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6187,7 +6189,7 @@ GameObject:
   - component: {fileID: 1098735101}
   - component: {fileID: 1098735100}
   m_Layer: 5
-  m_Name: MorseDot
+  m_Name: MorseDash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6258,14 +6260,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: ChangeFenceLevel
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
+        m_MethodName: SetMorseButtons
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6539,14 +6541,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: ChangeFenceLevel
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
+        m_MethodName: SetMorseButtons
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6862,7 +6864,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -120}
+  m_AnchoredPosition: {x: 0, y: -180}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1262912883
@@ -7500,8 +7502,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CaesarUserSystem, Assembly-CSharp
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
         m_MethodName: LogOutFunc
         m_Mode: 1
         m_Arguments:
@@ -7608,7 +7610,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f825bd063fbdc3c4a99a25e8c2e9c147, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7710,9 +7712,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: ChangeFenceLevel
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
+        m_MethodName: ChangeXORKey
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7818,7 +7820,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 00b0d47d4a4485b49ab650f700ad62a9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8851,14 +8853,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f163e100a3b470d4dab7a7dd8f80569d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9036,14 +9038,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: ChangeFenceLevel
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
+        m_MethodName: SetMorseButtons
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 8
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -9523,7 +9525,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -120}
+  m_AnchoredPosition: {x: 0, y: -180}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1943206550
@@ -9610,14 +9612,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: ChangeFenceLevel
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
+        m_MethodName: ChangeXORKey
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -9731,7 +9733,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Reset XOR
+  m_Text: Clear Input Field
 --- !u!222 &1948611846
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9791,14 +9793,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f163e100a3b470d4dab7a7dd8f80569d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10089,7 +10091,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -210, y: -280}
+  m_AnchoredPosition: {x: 210, y: -280}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2086651490
@@ -10136,10 +10138,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FenceUserSystem, Assembly-CSharp
-        m_MethodName: ChangeFenceLevel
-        m_Mode: 3
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: MorseUserSystem, Assembly-CSharp
+        m_MethodName: DecryptMorse
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10337,7 +10339,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: DOT (.)
+  m_Text: DASH (_)
 --- !u!222 &2094645845
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10417,7 +10419,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: DOT (.)
+  m_Text: DASH (_)
 --- !u!222 &2096581549
 CanvasRenderer:
   m_ObjectHideFlags: 0
