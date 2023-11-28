@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using static PlainWords;
+using static AccessEnigmaScript;
 
 public class MainMenuScript : MonoBehaviour
 { 
@@ -56,6 +57,21 @@ public class MainMenuScript : MonoBehaviour
         PlainWords.XOR_Morse_Words.AddRange(PlainWords.XOR_Morse_WordDataBase);
         PlainWords.MorseCodes = 3;
         PlainWords.XORCodes = 3;
+
+        //
+        //
+        //
+        //
+
+        AccessEnigmaScript.Level1Completed = false;
+        AccessEnigmaScript.Level2Completed = false;
+        AccessEnigmaScript.Level3Completed = false;
+        AccessEnigmaScript.Level4Completed = false;
+
+        AccessEnigmaScript.RookieAccessGranted = false;
+        AccessEnigmaScript.AmateurAccessGranted = false;
+        AccessEnigmaScript.ProfessionalAccessGranted = false;
+        AccessEnigmaScript.EliteAccessGranted = false;
 
         SceneManager.LoadSceneAsync("Game_AllUsers");
     }

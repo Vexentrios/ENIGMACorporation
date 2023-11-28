@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using static AccessEnigmaScript;
 
 public class CaesarUserSystem : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class CaesarUserSystem : MonoBehaviour
     [SerializeField] private Text ProgressValue;
     [SerializeField] private Text ResultMessage;
     [SerializeField] private Text CipheredText;
+    [SerializeField] private Text AccountPassword;
     [Header("-------------------------------------------------")]
     [Header("Other")]
     [SerializeField] private Slider ProgressBar;
@@ -37,6 +39,12 @@ public class CaesarUserSystem : MonoBehaviour
 
     void Start()
     {
+        if (AccessEnigmaScript.AmateurAccessGranted != true)
+            AccessEnigmaScript.AmateurAccessGranted = true;
+
+        if (AccessEnigmaScript.ProfessionalAccessGranted != true && AccessEnigmaScript.Level2Completed == true)
+            AccountPassword.gameObject.SetActive(true);
+
         CaesarAppIcon.GetComponent<Button>().enabled = true;
         AtBashAppIcon.GetComponent<Button>().enabled = true;
         CaesarApp.SetActive(false);
@@ -154,6 +162,12 @@ public class CaesarUserSystem : MonoBehaviour
             {
                 ProgressBar.value = (float)decryptedMessagesLevelTwo / (float)goal;
                 ProgressValue.text = Mathf.RoundToInt(ProgressBar.value * 100).ToString() + "%";
+
+                if (decryptedMessagesLevelTwo == goal)
+                {
+                    AccessEnigmaScript.Level2Completed = true;
+                    AccountPassword.gameObject.SetActive(true);
+                }
 
                 ///THIS CONTENT IS MOVED TO FINAL VERSION
                 //if (decryptedMessagesLevelTwo == goal)
