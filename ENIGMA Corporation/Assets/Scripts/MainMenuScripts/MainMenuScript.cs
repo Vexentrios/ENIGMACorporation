@@ -63,15 +63,21 @@ public class MainMenuScript : MonoBehaviour
         //
         //
 
+        AccessEnigmaScript.decryptedMessagesLevelOne = 0;
         AccessEnigmaScript.Level1Completed = false;
+        AccessEnigmaScript.decryptedMessagesLevelTwo = 0;
         AccessEnigmaScript.Level2Completed = false;
+        AccessEnigmaScript.decryptedMessagesLevelThree = 0;
         AccessEnigmaScript.Level3Completed = false;
+        AccessEnigmaScript.decryptedMessagesLevelFour = 0;
         AccessEnigmaScript.Level4Completed = false;
 
         AccessEnigmaScript.RookieAccessGranted = false;
         AccessEnigmaScript.AmateurAccessGranted = false;
         AccessEnigmaScript.ProfessionalAccessGranted = false;
         AccessEnigmaScript.EliteAccessGranted = false;
+
+
 
         SceneManager.LoadSceneAsync("Game_AllUsers");
     }

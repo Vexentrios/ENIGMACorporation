@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class AccessEnigmaScript : MonoBehaviour
 {
-    public static bool Level1Completed;
-    public static bool Level2Completed;
-    public static bool Level3Completed;
+    public static int decryptedMessagesLevelOne;
+    public static bool Level1Completed = true;
+    public static int decryptedMessagesLevelTwo;
+    public static bool Level2Completed = true;
+    public static int decryptedMessagesLevelThree;
+    public static bool Level3Completed = true;
+    public static int decryptedMessagesLevelFour;
     public static bool Level4Completed;
 
     public static bool RookieAccessGranted;
@@ -19,5 +23,5 @@ public class AccessEnigmaScript : MonoBehaviour
     public static string RookiePassword = "FenceCipher";
     public static string AmateurPassword = "BelovedCaesar753";
     public static string ProfessionalPassword = "X@12_M0r5e";
-    public static string ElitePassword;
+    public static string ElitePassword = "V1@en#PL47!AdvX";
 }

@@ -3276,8 +3276,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 62a9b09ea72e69b488fd932e51f3eefd, type: 3}
-    m_FontSize: 22
+    m_Font: {fileID: 12800000, guid: e4634c83ed515764c89d632a3e18f392, type: 3}
+    m_FontSize: 30
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -3288,7 +3288,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 2
-  m_Text: 
+  m_Text: "A                   E\n  C               G   M\n    K           D      
+    E\n      N       E           N\n        O   L               T\n          W                  
+    S"
 --- !u!222 &1127436662
 CanvasRenderer:
   m_ObjectHideFlags: 0

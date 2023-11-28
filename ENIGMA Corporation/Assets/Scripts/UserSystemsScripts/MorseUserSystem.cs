@@ -41,7 +41,7 @@ public class MorseUserSystem : MonoBehaviour
     private IEnumerator MorseRoutine;
     private IEnumerator XORRoutine;
 
-    //Dot => 1, Dash => 2, Break => 3, End => 4
+    //Dot => 1, Dash => 2, Break => 3
     Dictionary<char, string> MorseTable = new Dictionary<char, string>() { {'a', "12__"}, {'b', "2111"}, {'c', "2121"}, {'d', "211_"}, {'e', "1___"}, {'f', "1121"}, {'g', "221_"}, {'h', "1111"}, {'i', "11__"}, {'j', "1222"}, {'k', "212_"}, {'l', "1211"}, {'m', "22__"}, {'n', "21__"}, {'o', "222_"}, {'p', "1221"}, {'q', "2212"}, {'r', "121_"}, {'s', "111_"}, {'t', "2___"}, {'u', "112_"}, {'v', "1112"}, {'w', "122_"}, {'x', "2112"}, {'y', "2122"}, {'z', "2211"} };
 
     Color[] LightsColors = { new Color(0f, 0f, 0f), new Color(1f, 0.65f, 0f), new Color(1f, 0f, 0f), new Color(0f, 1f, 0f), new Color(0f, 0f, 1f), new Color(1f, 1f, 0f), new Color(1f, 1f, 1f)};     //[0] - Default/Break, [1] - Morse, [2]-[5] - XOR, [6] - XOR Space 
@@ -49,11 +49,10 @@ public class MorseUserSystem : MonoBehaviour
     int[] XORKeys = new int[4] {83, 30, 97, 72};         //RED | GREEN | BLUE | YELLOW
     int activeXORKey;
     string[] MorseElements = new string[4];              //dots (1), dashes (2) or empty spaces, used to decrypt Morse
-    public static string wordMorse_XOR;     //Answer which need to be given
-    public static string morse_xorWord;     //Encrypted answer word container
+    public static string Level3Answer;     //Answer which need to be given
+    public static string Level3EncryptedWord;     //Encrypted answer word container
     public static int usedXORKey;
     public static encryptingMethods usedMethod;
-    public static int decryptedMessagesLevelThree = 0;
     int goal = 6;
     int hideTimer;
     int symbol;
@@ -70,13 +69,13 @@ public class MorseUserSystem : MonoBehaviour
         XORAppIcon.GetComponent<Button>().enabled = true;
         MorseApp.SetActive(false);
         XORApp.SetActive(false);
-        ProgressBar.value = (float)decryptedMessagesLevelThree / (float)goal;
+        ProgressBar.value = (float)AccessEnigmaScript.decryptedMessagesLevelThree / (float)goal;
         ProgressValue.text = Mathf.RoundToInt(ProgressBar.value * 100).ToString() + "%";
 
-        if (wordMorse_XOR == null || wordMorse_XOR == "")
+        if (Level3Answer == null || Level3Answer == "")
             Morse_XOR_EncryptFunction();
         else
-            CipheredTextLength.text = morse_xorWord.Length.ToString();
+            CipheredTextLength.text = Level3EncryptedWord.Length.ToString();
     }
 
     //########################################################################################
@@ -194,12 +193,12 @@ public class MorseUserSystem : MonoBehaviour
     {
         ///THIS CONTENT IS MOVED TO FINAL VERSION
         //if (PlainWords.XOR_Morse_Words.Count > 0)
-        if (PlainWords.XOR_Morse_Words.Count > 0 && decryptedMessagesLevelThree != goal)
+        if (PlainWords.XOR_Morse_Words.Count > 0 && AccessEnigmaScript.decryptedMessagesLevelThree != goal)
         {
             int number = Random.Range(0, PlainWords.XOR_Morse_Words.Count);
-            wordMorse_XOR = PlainWords.XOR_Morse_Words[number];
+            Level3Answer = PlainWords.XOR_Morse_Words[number];
             PlainWords.XOR_Morse_Words.RemoveAt(number);
-            morse_xorWord = "";
+            Level3EncryptedWord = "";
 
             if (PlainWords.MorseCodes > 0 && PlainWords.XORCodes > 0)
             {
@@ -237,15 +236,15 @@ public class MorseUserSystem : MonoBehaviour
     public void MorseAlgorithm()
     {
         int index = 0;
-        while (index <= wordMorse_XOR.Length - 1)
+        while (index <= Level3Answer.Length - 1)
         {
-            morse_xorWord += MorseTable[wordMorse_XOR[index]];
+            Level3EncryptedWord += MorseTable[Level3Answer[index]];
             index++;
-            if(index <= wordMorse_XOR.Length - 1)
-                morse_xorWord += "3";
+            if(index <= Level3Answer.Length - 1)
+                Level3EncryptedWord += "3";
         }
         PlainWords.MorseCodes--;
-        CipheredTextLength.text = wordMorse_XOR.Length.ToString();
+        CipheredTextLength.text = Level3Answer.Length.ToString();
         MorseRoutine = MorseLightsActivation();     //I honestly think this it utterly stupid to assign this one
                                                     //variable each time when this function is called.
                                                     //But honestly, this is the only solution how I found
@@ -258,38 +257,38 @@ public class MorseUserSystem : MonoBehaviour
         usedXORKey = Random.Range(0, 4);
         int index = 0;
         int binPower;
-        morse_xorWord = "";
-        while (index <= wordMorse_XOR.Length - 1)
+        Level3EncryptedWord = "";
+        while (index <= Level3Answer.Length - 1)
         {
             int power = 7;
-            int letterValue = wordMorse_XOR[index] ^ XORKeys[usedXORKey];
+            int letterValue = Level3Answer[index] ^ XORKeys[usedXORKey];
             while(power >= 0)
             {
                 binPower = (int)Mathf.Pow(2, power);
                 if (letterValue / binPower == 1)
                 {
-                    morse_xorWord += "1";
+                    Level3EncryptedWord += "1";
                     letterValue -= binPower;
                 }
                 else
-                    morse_xorWord += "0";             
+                    Level3EncryptedWord += "0";             
                 
                 power--;
             }
 
             index++;
-            if (index <= wordMorse_XOR.Length - 1)
-                morse_xorWord += "_";
+            if (index <= Level3Answer.Length - 1)
+                Level3EncryptedWord += "_";
         }
         PlainWords.XORCodes--;
-        CipheredTextLength.text = wordMorse_XOR.Length.ToString();
+        CipheredTextLength.text = Level3Answer.Length.ToString();
         XORRoutine = XORLightsActivation();     //The same as above case
         StartCoroutine(XORRoutine);
     }
 
     public void SendSolutionReport()
     {
-        if (Solution.text.ToLower() == wordMorse_XOR)
+        if (Solution.text.ToLower() == Level3Answer)
         {
             Notepad.text = "";
 
@@ -301,25 +300,25 @@ public class MorseUserSystem : MonoBehaviour
             for (int l = 0; l < 3; l++)
                 Lights[l].color = LightsColors[0];
 
-            StartCoroutine(Cooldown());
             hideTimer = 2;
             StartCoroutine(ShowResult());
             ResultMessage.color = Color.green;
             ResultMessage.text = "Correct";
-            decryptedMessagesLevelThree++;
-            if (decryptedMessagesLevelThree <= goal)
+            AccessEnigmaScript.decryptedMessagesLevelThree++;
+            StartCoroutine(Cooldown());
+            if (AccessEnigmaScript.decryptedMessagesLevelThree <= goal)
             {
-                ProgressBar.value = (float)decryptedMessagesLevelThree / (float)goal;
+                ProgressBar.value = (float)AccessEnigmaScript.decryptedMessagesLevelThree / (float)goal;
                 ProgressValue.text = Mathf.RoundToInt(ProgressBar.value * 100).ToString() + "%";
 
-                if (decryptedMessagesLevelThree == goal)
+                if (AccessEnigmaScript.decryptedMessagesLevelThree == goal)
                 {
                     AccessEnigmaScript.Level3Completed = true;
                     AccountPassword.gameObject.SetActive(true);
                 }
 
                 ///THIS CONTENT IS MOVED TO FINAL VERSION
-                //if (decryptedMessagesLevelThree == goal)
+                //if (AccessEnigmaScript.decryptedMessagesLevelThree == goal)
                 //{
                 //    PlainWords.MorseCodes = 7;
                 //    PlainWords.XORCodes = 7;
@@ -346,9 +345,9 @@ public class MorseUserSystem : MonoBehaviour
         symbol = 0;
         while (true)
         {
-            if(morse_xorWord[symbol] != '_')
+            if(Level3EncryptedWord[symbol] != '_')
             {
-                switch (morse_xorWord[symbol])
+                switch (Level3EncryptedWord[symbol])
                 {
                     case '1':
                         Lights[0].color = LightsColors[1];
@@ -368,7 +367,7 @@ public class MorseUserSystem : MonoBehaviour
             }
             symbol++;
 
-            if (symbol == morse_xorWord.Length)
+            if (symbol == Level3EncryptedWord.Length)
             {
                 symbol = 0;
                 for (int l = 0; l < 3; l++)
@@ -385,7 +384,7 @@ public class MorseUserSystem : MonoBehaviour
     {
         while (true)
         {
-            switch (morse_xorWord[symbol])
+            switch (Level3EncryptedWord[symbol])
             {
                 case '1':
                     Lights[2].color = LightsColors[usedXORKey + 2];
@@ -406,7 +405,7 @@ public class MorseUserSystem : MonoBehaviour
             symbol++;
             yield return new WaitForSeconds(0.5f);
 
-            if (symbol == morse_xorWord.Length)
+            if (symbol == Level3EncryptedWord.Length)
             {
                 symbol = 0;
                 for (int l = 0; l < 3; l++)
