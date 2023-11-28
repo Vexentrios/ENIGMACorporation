@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using static PlainWords;
+using static AccessEnigmaScript;
 
 public class FenceUserSystem : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class FenceUserSystem : MonoBehaviour
     [SerializeField] private Text ResultMessage;
     [SerializeField] private Text Fence;
     [SerializeField] private Text CipheredText;
+    [SerializeField] private Text AccountPassword;
     [Header("-------------------------------------------------")]
     [Header("Other")]
     [SerializeField] private Slider ProgressBar;
@@ -41,6 +43,12 @@ public class FenceUserSystem : MonoBehaviour
 
     void Start()
     {
+        if (AccessEnigmaScript.RookieAccessGranted != true)
+            AccessEnigmaScript.RookieAccessGranted = true;
+
+        if (AccessEnigmaScript.AmateurAccessGranted != true && AccessEnigmaScript.Level1Completed == true)
+            AccountPassword.gameObject.SetActive(true);
+
         FenceAppIcon.GetComponent<Button>().enabled = true;
         FenceApp.SetActive(false);
         TimePanel.SetActive(false);
@@ -183,6 +191,12 @@ public class FenceUserSystem : MonoBehaviour
             {
                 ProgressBar.value = (float)decryptedMessagesLevelOne / (float)goal;
                 ProgressValue.text = Mathf.RoundToInt(ProgressBar.value * 100).ToString() + "%";
+
+                if (decryptedMessagesLevelOne == goal)
+                {
+                    AccessEnigmaScript.Level1Completed = true;
+                    AccountPassword.gameObject.SetActive(true);
+                }
 
                 ///THIS CONTENT IS MOVED TO FINAL VERSION
                 //if (decryptedMessagesLevelThree == goal)

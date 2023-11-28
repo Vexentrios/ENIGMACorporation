@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using static PlainWords;
+using static AccessEnigmaScript;
 
 public class MorseUserSystem : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class MorseUserSystem : MonoBehaviour
     [SerializeField] private Text ProgressValue;
     [SerializeField] private Text ResultMessage;
     [SerializeField] private Text CipheredTextLength;
+    [SerializeField] private Text AccountPassword;
     [Header("-------------------------------------------------")]
     [Header("Other")]
     [SerializeField] private Slider ProgressBar;
@@ -58,6 +60,12 @@ public class MorseUserSystem : MonoBehaviour
 
     void Start()
     {
+        if (AccessEnigmaScript.ProfessionalAccessGranted != true)
+            AccessEnigmaScript.ProfessionalAccessGranted = true;
+
+        if (AccessEnigmaScript.EliteAccessGranted != true && AccessEnigmaScript.Level3Completed == true)
+            AccountPassword.gameObject.SetActive(true);
+
         MorseAppIcon.GetComponent<Button>().enabled = true;
         XORAppIcon.GetComponent<Button>().enabled = true;
         MorseApp.SetActive(false);
@@ -192,7 +200,6 @@ public class MorseUserSystem : MonoBehaviour
             wordMorse_XOR = PlainWords.XOR_Morse_Words[number];
             PlainWords.XOR_Morse_Words.RemoveAt(number);
             morse_xorWord = "";
-            Debug.Log(wordMorse_XOR);
 
             if (PlainWords.MorseCodes > 0 && PlainWords.XORCodes > 0)
             {
@@ -305,6 +312,12 @@ public class MorseUserSystem : MonoBehaviour
                 ProgressBar.value = (float)decryptedMessagesLevelThree / (float)goal;
                 ProgressValue.text = Mathf.RoundToInt(ProgressBar.value * 100).ToString() + "%";
 
+                if (decryptedMessagesLevelThree == goal)
+                {
+                    AccessEnigmaScript.Level3Completed = true;
+                    AccountPassword.gameObject.SetActive(true);
+                }
+
                 ///THIS CONTENT IS MOVED TO FINAL VERSION
                 //if (decryptedMessagesLevelThree == goal)
                 //{
@@ -354,7 +367,6 @@ public class MorseUserSystem : MonoBehaviour
                 yield return new WaitForSeconds(0.5f);
             }
             symbol++;
-            Debug.Log(symbol);
 
             if (symbol == morse_xorWord.Length)
             {
@@ -392,7 +404,6 @@ public class MorseUserSystem : MonoBehaviour
                     break;
             }
             symbol++;
-            Debug.Log(symbol);
             yield return new WaitForSeconds(0.5f);
 
             if (symbol == morse_xorWord.Length)
