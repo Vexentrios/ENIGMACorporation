@@ -12,21 +12,22 @@ public class TablesUserSystem : MonoBehaviour
     [Header("Panels")]
     [SerializeField] private GameObject VigenereApp;
     [SerializeField] private GameObject PlayFairApp;
-    //[SerializeField] private GameObject MorseApp;
+    [SerializeField] private GameObject ADFVGXApp;
     [Header("-------------------------------------------------")]
     [Header("Buttons")]
     [SerializeField] private Button VigenereCreateLinesButton;
     [SerializeField] private Button CloseVigenereAppButton;
     [SerializeField] private Button PlayFairGenerateButton;
     [SerializeField] private Button ClosePlayFairAppButton;
-    //[SerializeField] private Button CloseXORAppButton;
+    [SerializeField] private Button ADFVGXFillSea;
+    [SerializeField] private Button CloseADFVGXAppButton;
     [SerializeField] private Button SolveReportButton;
-    //[SerializeField] private Button LogoutButton;
+    [SerializeField] private Button LogoutButton;
     [Header("-------------------------------------------------")]
     [Header("InputFields")]
     [SerializeField] private InputField VigenereKey;
     [SerializeField] private InputField PlayFairKey;
-    //[SerializeField] private InputField Notepad;
+    [SerializeField] private InputField ADFVGXKey;
     [SerializeField] private InputField Solution;
     [Header("-------------------------------------------------")]
     [Header("Texts")]
@@ -37,7 +38,8 @@ public class TablesUserSystem : MonoBehaviour
     [SerializeField] private Text PlayFairError;
     [SerializeField] private Text PlayFairTableVisual;
 
-    //[SerializeField] private Text ADFVGXError;
+    [SerializeField] private Text ADFVGXError;
+    [SerializeField] private Text ADFVGXTableVisual;
 
     [SerializeField] private Text ProgressValue;
     [SerializeField] private Text ResultMessage;
@@ -49,13 +51,15 @@ public class TablesUserSystem : MonoBehaviour
     [SerializeField] private Image KeyIndicator;
     [SerializeField] private Image VigenereAppIcon;
     [SerializeField] private Image PlayFairAppIcon;
-    //[SerializeField] private Image XORAppIcon;
+    [SerializeField] private Image ADFVGXAppIcon;
 
     enum EncryptTools {Vigenere, PlayFair, ADFVGX};
 
     Color[] KeyColors = { new Color(1f, 0f, 0f), new Color(0f, 1f, 0f), new Color(0f, 0f, 1f), new Color(1f, 1f, 0f), new Color(0.73f, 0f, 1f), new Color(0f, 0f, 0f)};
 
     string[] alphabet = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
+
+    string[] ADFVGXTableValues = { "A", "D", "F", "V", "G", "X" };
 
     string[] keyWords = { "IBEX", "FAWN", "TAHR", "DRAKE", "DUCK", "GOOSE", "NARWHAL", "CUTTLEFISH", "HIPPO", "HERON", "QUETZAL", "OWL", "WEREWOLF", "VAMPIRE", "MINOTAUR" };
 
@@ -73,15 +77,15 @@ public class TablesUserSystem : MonoBehaviour
         if (AccessEnigmaScript.EliteAccessGranted != true)
             AccessEnigmaScript.EliteAccessGranted = true;
 
-        //if (AccessEnigmaScript.EliteAccessGranted != true && AccessEnigmaScript.Level3Completed == true)
-        //    AccountPassword.gameObject.SetActive(true);
+        if (AccessEnigmaScript.Level4Completed == true)
+            AccountPassword.gameObject.SetActive(true);
 
         VigenereAppIcon.GetComponent<Button>().enabled = true;
         PlayFairAppIcon.GetComponent<Button>().enabled = true;
-        //XORAppIcon.GetComponent<Button>().enabled = true;
+        ADFVGXAppIcon.GetComponent<Button>().enabled = true;
         VigenereApp.SetActive(false);
         PlayFairApp.SetActive(false);
-        //XORApp.SetActive(false);*/
+        ADFVGXApp.SetActive(false);
         ProgressBar.value = (float)AccessEnigmaScript.decryptedMessagesLevelFour / (float)goal;
         ProgressValue.text = Mathf.RoundToInt(ProgressBar.value * 100).ToString() + "%";
 
@@ -101,6 +105,69 @@ public class TablesUserSystem : MonoBehaviour
                 break;
             }
         return correct;
+    }
+
+    //########################################################################################
+    //##############################[ADFVGX Cipher Part]######################################
+    //########################################################################################
+
+    public void OpenADFVGXApp()
+    {
+        ActiveTool = EncryptTools.ADFVGX;
+        ADFVGXAppIcon.GetComponent<Button>().enabled = false;
+        ADFVGXApp.SetActive(true);
+        ADFVGXKey.text = "";
+        ADFVGXTableVisual.text = "";
+    }
+
+    public void CloseADFVGXApp()
+    {
+        ADFVGXApp.SetActive(false);
+        ADFVGXAppIcon.GetComponent<Button>().enabled = true;
+    }
+
+    public void GenerateADFVGX()
+    {
+        string ADKey = ADFVGXKey.text.ToUpper();
+        ADFVGXTableVisual.text = "";
+        if (ADKey.Length > 0)
+            if (TestEnteredKey(ADKey))
+            {
+                string allSymbolsTable = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+                int lettersInLine = 0;
+
+                while (ADKey.Length > 0)
+                {
+                    ADFVGXTableVisual.text += ADKey[0];
+                    allSymbolsTable = allSymbolsTable.Replace(ADKey[0].ToString(), "");
+                    ADKey = ADKey.Replace(ADKey[0].ToString(), "");
+
+                    if (lettersInLine % 6 == 5)
+                        ADFVGXTableVisual.text += "\n";
+                    else
+                        ADFVGXTableVisual.text += " ";
+                    lettersInLine++;
+                }
+                int index = 0;
+                while (index < allSymbolsTable.Length)
+                {
+                    ADFVGXTableVisual.text += allSymbolsTable[index];
+
+                    if (lettersInLine % 6 == 5)
+                        ADFVGXTableVisual.text += "\n";
+                    else
+                        ADFVGXTableVisual.text += " ";
+                    lettersInLine++;
+                    index++;
+                }
+            }
+            else
+            {
+                ADFVGXKey.text = "";
+                ADFVGXError.gameObject.SetActive(true);
+                hideTimer = 2;
+                StartCoroutine(ShowError());
+            }
     }
 
     //########################################################################################
@@ -145,16 +212,17 @@ public class TablesUserSystem : MonoBehaviour
                         PlayFairTableVisual.text += " ";
                     lettersInLine++;
                 }
-                while (wholeAlphabet.Length > 0)
+                int index = 0;
+                while (index < wholeAlphabet.Length)
                 {
-                    PlayFairTableVisual.text += wholeAlphabet[0];
-                    wholeAlphabet = wholeAlphabet.Replace(wholeAlphabet[0].ToString(), "");
+                    PlayFairTableVisual.text += wholeAlphabet[index];
 
                     if (lettersInLine % 5 == 4)
                         PlayFairTableVisual.text += "\n";
                     else
                         PlayFairTableVisual.text += " ";
                     lettersInLine++;
+                    index++;
                 }
             }
             else
@@ -246,7 +314,7 @@ public class TablesUserSystem : MonoBehaviour
             {
                 int choice = Random.Range(0, 3);
                 if (choice == 0)
-                    Debug.Log("ADFVGXAlgorithm"); //ADFVGXAlgorithm();
+                    ADFVGXAlgorithm();
                 else if (choice == 1)
                     PlayFairAlgorithm();
                 else
@@ -264,7 +332,7 @@ public class TablesUserSystem : MonoBehaviour
             {
                 int choice = Random.Range(0, 2);
                 if (choice == 0)
-                    Debug.Log("ADFVGXAlgorithm"); //ADFVGXAlgorithm();
+                    ADFVGXAlgorithm();
                 else
                     VigenereAlgorithm();
             }
@@ -272,12 +340,12 @@ public class TablesUserSystem : MonoBehaviour
             {
                 int choice = Random.Range(0, 2);
                 if (choice == 0)
-                    Debug.Log("PlayFairAlgorithm"); //ADFVGXAlgorithm();
+                    ADFVGXAlgorithm();
                 else
                     PlayFairAlgorithm();
             }
-            //else if (PlainWords.ADFVGXCodes > 0 && PlainWords.PlayfairCodes == 0 && PlainWords.VigenereCodes == 0)
-            //    ADFVGXAlgorithm();
+            else if (PlainWords.ADFVGXCodes > 0 && PlainWords.PlayFairCodes == 0 && PlainWords.VigenereCodes == 0)
+                ADFVGXAlgorithm();
             else if (PlainWords.ADFVGXCodes == 0 && PlainWords.PlayFairCodes > 0 && PlainWords.VigenereCodes == 0)
                 PlayFairAlgorithm();
             else if (PlainWords.ADFVGXCodes == 0 && PlainWords.PlayFairCodes == 0 && PlainWords.VigenereCodes > 0)
@@ -294,23 +362,31 @@ public class TablesUserSystem : MonoBehaviour
         }
     }
 
-    public void MorseAlgorithm()
+    public void ADFVGXAlgorithm()
     {
-/*        int index = 0;
-        while (index <= Level4Answer.Length - 1)
+        string ADEncKey = keyWords[chosenKey];
+        string allSymbolsTable = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        string encryptionTable = "";
+        string answerBuffor = Level4Answer.ToUpper();
+
+        while (ADEncKey.Length > 0)
         {
-            Level4EncryptedWord += MorseTable[Level4Answer[index]];
-            index++;
-            if (index <= Level4Answer.Length - 1)
-                Level4EncryptedWord += "3";
+            encryptionTable += ADEncKey[0];
+            allSymbolsTable = allSymbolsTable.Replace(ADEncKey[0].ToString(), "");
+            ADEncKey = ADEncKey.Replace(ADEncKey[0].ToString(), "");
         }
-        PlainWords.MorseCodes--;
-        CipheredTextLength.text = Level4Answer.Length.ToString();
-        MorseRoutine = MorseLightsActivation();     //I honestly think this it utterly stupid to assign this one
-                                                    //variable each time when this function is called.
-                                                    //But honestly, this is the only solution how I found
-                                                    //to reset this Coroutine from the very start :/
-        StartCoroutine(MorseRoutine);*/
+        encryptionTable += allSymbolsTable;
+
+        int index = 0;
+        int position;
+        while (index < answerBuffor.Length)
+        {
+            position = encryptionTable.IndexOf((char)(answerBuffor[index]));
+            Level4EncryptedWord += ADFVGXTableValues[position / 6];
+            Level4EncryptedWord += ADFVGXTableValues[position % 6];
+            index++;
+        }
+        PlainWords.ADFVGXCodes--;
     }
 
     public void PlayFairAlgorithm()
@@ -327,7 +403,6 @@ public class TablesUserSystem : MonoBehaviour
             playEncKey = playEncKey.Replace(playEncKey[0].ToString(), "");
         }
         encryptionTable += wholeAlphabet;
-        Debug.Log(encryptionTable);
 
         if (answerBuffor.Length % 2 == 1)
             answerBuffor += (char)(answerBuffor[answerBuffor.Length - 1] + 1);
@@ -407,7 +482,7 @@ public class TablesUserSystem : MonoBehaviour
 
                 if (AccessEnigmaScript.decryptedMessagesLevelFour == goal)
                 {
-                    AccessEnigmaScript.Level3Completed = true;
+                    AccessEnigmaScript.Level4Completed = true;
                     AccountPassword.gameObject.SetActive(true);
                 }
 
@@ -458,8 +533,8 @@ public class TablesUserSystem : MonoBehaviour
             VigenereError.gameObject.SetActive(false);
         else if (ActiveTool == EncryptTools.PlayFair)
             PlayFairError.gameObject.SetActive(false);
-        //else if (ActiveTool == EncryptTools.ADFVGX)
-        //    ADFVGXError.gameObject.SetActive(false);
+        else if (ActiveTool == EncryptTools.ADFVGX)
+            ADFVGXError.gameObject.SetActive(false);
 
         yield break;
     }

@@ -58,8 +58,8 @@ public class MainMenuScript : MonoBehaviour
         PlainWords.MorseCodes = 3;
         PlainWords.XORCodes = 3;
 
-        //
-        //
+        PlainWords.ADFVGX_PlayFair_Vigenere_Words.AddRange(PlainWords.ADFVGX_PlayFair_Vigenere_WordDataBase);
+        PlainWords.ADFVGXCodes = 3;
         PlainWords.PlayFairCodes = 2;
         PlainWords.VigenereCodes = 2;
 
@@ -76,8 +76,6 @@ public class MainMenuScript : MonoBehaviour
         AccessEnigmaScript.AmateurAccessGranted = false;
         AccessEnigmaScript.ProfessionalAccessGranted = false;
         AccessEnigmaScript.EliteAccessGranted = false;
-
-
 
         SceneManager.LoadSceneAsync("Game_AllUsers");
     }
