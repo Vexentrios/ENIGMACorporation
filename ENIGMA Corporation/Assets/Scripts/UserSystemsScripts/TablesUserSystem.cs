@@ -11,17 +11,21 @@ public class TablesUserSystem : MonoBehaviour
 {
     [Header("Panels")]
     [SerializeField] private GameObject VigenereApp;
+    [SerializeField] private GameObject PlayFairApp;
     //[SerializeField] private GameObject MorseApp;
     [Header("-------------------------------------------------")]
     [Header("Buttons")]
     [SerializeField] private Button VigenereCreateLinesButton;
     [SerializeField] private Button CloseVigenereAppButton;
+    [SerializeField] private Button PlayFairGenerateButton;
+    [SerializeField] private Button ClosePlayFairAppButton;
     //[SerializeField] private Button CloseXORAppButton;
     [SerializeField] private Button SolveReportButton;
     //[SerializeField] private Button LogoutButton;
     [Header("-------------------------------------------------")]
     [Header("InputFields")]
     [SerializeField] private InputField VigenereKey;
+    [SerializeField] private InputField PlayFairKey;
     //[SerializeField] private InputField Notepad;
     [SerializeField] private InputField Solution;
     [Header("-------------------------------------------------")]
@@ -29,6 +33,11 @@ public class TablesUserSystem : MonoBehaviour
     [SerializeField] private Text[] VigenereKeyLetter = new Text[10];
     [SerializeField] private Text[] VigenereLine = new Text[10];
     [SerializeField] private Text VigenereError;
+
+    [SerializeField] private Text PlayFairError;
+    [SerializeField] private Text PlayFairTableVisual;
+
+    //[SerializeField] private Text ADFVGXError;
 
     [SerializeField] private Text ProgressValue;
     [SerializeField] private Text ResultMessage;
@@ -39,7 +48,10 @@ public class TablesUserSystem : MonoBehaviour
     [SerializeField] private Slider ProgressBar;
     [SerializeField] private Image KeyIndicator;
     [SerializeField] private Image VigenereAppIcon;
+    [SerializeField] private Image PlayFairAppIcon;
     //[SerializeField] private Image XORAppIcon;
+
+    enum EncryptTools {Vigenere, PlayFair, ADFVGX};
 
     Color[] KeyColors = { new Color(1f, 0f, 0f), new Color(0f, 1f, 0f), new Color(0f, 0f, 1f), new Color(1f, 1f, 0f), new Color(0.73f, 0f, 1f), new Color(0f, 0f, 0f)};
 
@@ -47,12 +59,13 @@ public class TablesUserSystem : MonoBehaviour
 
     string[] keyWords = { "IBEX", "FAWN", "TAHR", "DRAKE", "DUCK", "GOOSE", "NARWHAL", "CUTTLEFISH", "HIPPO", "HERON", "QUETZAL", "OWL", "WEREWOLF", "VAMPIRE", "MINOTAUR" };
 
+    int chosenKey;
     public static int keyColorID;
-    public static string Level4Answer;       //Answer which need to be given
+    public static string Level4Answer;            //Answer which need to be given
     public static string Level4EncryptedWord;     //Encrypted answer word container
     public static int usedXORKey;
-    public static encryptingMethods usedMethod;
-    int goal = 6;
+    EncryptTools ActiveTool;
+    int goal = 7;
     int hideTimer;
 
     void Start()
@@ -64,8 +77,10 @@ public class TablesUserSystem : MonoBehaviour
         //    AccountPassword.gameObject.SetActive(true);
 
         VigenereAppIcon.GetComponent<Button>().enabled = true;
+        PlayFairAppIcon.GetComponent<Button>().enabled = true;
         //XORAppIcon.GetComponent<Button>().enabled = true;
         VigenereApp.SetActive(false);
+        PlayFairApp.SetActive(false);
         //XORApp.SetActive(false);*/
         ProgressBar.value = (float)AccessEnigmaScript.decryptedMessagesLevelFour / (float)goal;
         ProgressValue.text = Mathf.RoundToInt(ProgressBar.value * 100).ToString() + "%";
@@ -89,11 +104,75 @@ public class TablesUserSystem : MonoBehaviour
     }
 
     //########################################################################################
+    //############################[PlayFair Cipher Part]######################################
+    //########################################################################################
+
+    public void OpenPlayFairApp()
+    {
+        ActiveTool = EncryptTools.PlayFair;
+        PlayFairAppIcon.GetComponent<Button>().enabled = false;
+        PlayFairApp.SetActive(true);
+        PlayFairKey.text = "";
+        PlayFairTableVisual.text = "";
+    }
+
+    public void ClosePlayFairApp()
+    {
+        PlayFairApp.SetActive(false);
+        PlayFairAppIcon.GetComponent<Button>().enabled = true;
+    }
+
+    public void GeneratePlayFair()
+    {
+        string playKey = PlayFairKey.text.ToUpper();
+        PlayFairTableVisual.text = "";
+        if (playKey.Length > 0)
+            if (TestEnteredKey(playKey))
+            {
+                playKey = playKey.Replace("J", "I");
+                string wholeAlphabet = "ABCDEFGHIKLMNOPQRSTUVWXYZ";
+                int lettersInLine = 0;
+
+                while (playKey.Length > 0)
+                {
+                    PlayFairTableVisual.text += playKey[0];
+                    wholeAlphabet = wholeAlphabet.Replace(playKey[0].ToString(), "");
+                    playKey = playKey.Replace(playKey[0].ToString(), "");
+
+                    if (lettersInLine % 5 == 4)
+                        PlayFairTableVisual.text += "\n";
+                    else
+                        PlayFairTableVisual.text += " ";
+                    lettersInLine++;
+                }
+                while (wholeAlphabet.Length > 0)
+                {
+                    PlayFairTableVisual.text += wholeAlphabet[0];
+                    wholeAlphabet = wholeAlphabet.Replace(wholeAlphabet[0].ToString(), "");
+
+                    if (lettersInLine % 5 == 4)
+                        PlayFairTableVisual.text += "\n";
+                    else
+                        PlayFairTableVisual.text += " ";
+                    lettersInLine++;
+                }
+            }
+            else
+            {
+                PlayFairKey.text = "";
+                PlayFairError.gameObject.SetActive(true);
+                hideTimer = 2;
+                StartCoroutine(ShowError());
+            }
+    }
+
+    //########################################################################################
     //###########################[Vigenere Cipher Part]#######################################
     //########################################################################################
 
     public void OpenVigenereApp()
     {
+        ActiveTool = EncryptTools.Vigenere;
         VigenereKey.text = "";
         VigenereAppIcon.GetComponent<Button>().enabled = false;
         ResetVigenere();
@@ -133,7 +212,7 @@ public class TablesUserSystem : MonoBehaviour
                 VigenereKey.text = "";
                 VigenereError.gameObject.SetActive(true);
                 hideTimer = 2;
-                StartCoroutine(ShowVigenereError());
+                StartCoroutine(ShowError());
             }
     }
 
@@ -144,24 +223,6 @@ public class TablesUserSystem : MonoBehaviour
             VigenereKeyLetter[v].text = "Letter -";
             VigenereLine[v].text = "";
         }
-    }
-
-    //########################################################################################
-    //##############################[XOR Cipher Part]#########################################
-    //########################################################################################
-
-    public void OpenXORApp()
-    {
-/*        XORAppIcon.GetComponent<Button>().enabled = false;
-        XORApp.SetActive(true);
-        ChangeXORKey(0);
-        XOREncryptedMessage.text = "";*/
-    }
-
-    public void CloseXORApp()
-    {
-/*        XORApp.SetActive(false);
-        XORAppIcon.GetComponent<Button>().enabled = true;*/
     }
 
     //########################################################################################
@@ -176,28 +237,30 @@ public class TablesUserSystem : MonoBehaviour
         {
             int number = Random.Range(0, PlainWords.ADFVGX_PlayFair_Vigenere_Words.Count);
             Level4Answer = PlainWords.ADFVGX_PlayFair_Vigenere_Words[number];
-            //PlainWords.ADFVGX_PlayFair_Vigenere_Words.RemoveAt(number);
+            PlainWords.ADFVGX_PlayFair_Vigenere_Words.RemoveAt(number);
             Level4EncryptedWord = "";
+            chosenKey = Random.Range(0, 15);
+            keyColorID = chosenKey / 3;
 
-            if (PlainWords.ADFVGXCodes > 0 && PlainWords.PlayfairCodes > 0 && PlainWords.VigenereCodes > 0)
+            if (PlainWords.ADFVGXCodes > 0 && PlainWords.PlayFairCodes > 0 && PlainWords.VigenereCodes > 0)
             {
                 int choice = Random.Range(0, 3);
                 if (choice == 0)
                     Debug.Log("ADFVGXAlgorithm"); //ADFVGXAlgorithm();
                 else if (choice == 1)
-                    Debug.Log("PlayfairAlgorithm"); //PlayfairAlgorithm();
+                    PlayFairAlgorithm();
                 else
                     VigenereAlgorithm();
             }
-            else if (PlainWords.ADFVGXCodes == 0 && PlainWords.PlayfairCodes > 0 && PlainWords.VigenereCodes > 0)
+            else if (PlainWords.ADFVGXCodes == 0 && PlainWords.PlayFairCodes > 0 && PlainWords.VigenereCodes > 0)
             {
                 int choice = Random.Range(0, 2);
                 if (choice == 0)
-                    Debug.Log("PlayFairAlgorithm"); //ADFVGXAlgorithm();
+                    PlayFairAlgorithm();
                 else
                     VigenereAlgorithm();
             }
-            else if (PlainWords.ADFVGXCodes > 0 && PlainWords.PlayfairCodes == 0 && PlainWords.VigenereCodes > 0)
+            else if (PlainWords.ADFVGXCodes > 0 && PlainWords.PlayFairCodes == 0 && PlainWords.VigenereCodes > 0)
             {
                 int choice = Random.Range(0, 2);
                 if (choice == 0)
@@ -205,20 +268,22 @@ public class TablesUserSystem : MonoBehaviour
                 else
                     VigenereAlgorithm();
             }
-            else if (PlainWords.ADFVGXCodes > 0 && PlainWords.PlayfairCodes > 0 && PlainWords.VigenereCodes == 0)
+            else if (PlainWords.ADFVGXCodes > 0 && PlainWords.PlayFairCodes > 0 && PlainWords.VigenereCodes == 0)
             {
                 int choice = Random.Range(0, 2);
                 if (choice == 0)
                     Debug.Log("PlayFairAlgorithm"); //ADFVGXAlgorithm();
                 else
-                    Debug.Log("PlayFairAlgorithm"); //ADFVGXAlgorithm();
+                    PlayFairAlgorithm();
             }
             //else if (PlainWords.ADFVGXCodes > 0 && PlainWords.PlayfairCodes == 0 && PlainWords.VigenereCodes == 0)
             //    ADFVGXAlgorithm();
-            //else if (PlainWords.ADFVGXCodes == 0 && PlainWords.PlayfairCodes > 0 && PlainWords.VigenereCodes == 0)
-            //    PlayFairAlgorithm();
-            else if (PlainWords.ADFVGXCodes == 0 && PlainWords.PlayfairCodes == 0 && PlainWords.VigenereCodes > 0)
+            else if (PlainWords.ADFVGXCodes == 0 && PlainWords.PlayFairCodes > 0 && PlainWords.VigenereCodes == 0)
+                PlayFairAlgorithm();
+            else if (PlainWords.ADFVGXCodes == 0 && PlainWords.PlayFairCodes == 0 && PlainWords.VigenereCodes > 0)
                 VigenereAlgorithm();
+            KeyIndicator.color = KeyColors[keyColorID];
+            CipheredText.text = Level4EncryptedWord;
         }
         else
         {
@@ -248,44 +313,67 @@ public class TablesUserSystem : MonoBehaviour
         StartCoroutine(MorseRoutine);*/
     }
 
-    public void XORAlgorithm()
+    public void PlayFairAlgorithm()
     {
-/*        usedXORKey = Random.Range(0, 4);
-        int index = 0;
-        int binPower;
-        Level4EncryptedWord = "";
-        while (index <= Level4Answer.Length - 1)
+        string playEncKey = keyWords[chosenKey];
+        string wholeAlphabet = "ABCDEFGHIKLMNOPQRSTUVWXYZ";
+        string encryptionTable = "";
+        string answerBuffor = Level4Answer.ToUpper();
+
+        while (playEncKey.Length > 0)
         {
-            int power = 7;
-            int letterValue = Level4Answer[index] ^ XORKeys[usedXORKey];
-            while (power >= 0)
+            encryptionTable += playEncKey[0];
+            wholeAlphabet = wholeAlphabet.Replace(playEncKey[0].ToString(), "");
+            playEncKey = playEncKey.Replace(playEncKey[0].ToString(), "");
+        }
+        encryptionTable += wholeAlphabet;
+        Debug.Log(encryptionTable);
+
+        if (answerBuffor.Length % 2 == 1)
+            answerBuffor += (char)(answerBuffor[answerBuffor.Length - 1] + 1);
+        answerBuffor = answerBuffor.Replace("J", "I");
+
+        int index = 0;
+        int[] positions = new int[2];
+        int move = 0;
+
+        while (index < answerBuffor.Length)
+        {
+            positions[0] = encryptionTable.IndexOf((char)(answerBuffor[index]));
+            positions[1] = encryptionTable.IndexOf((char)(answerBuffor[index + 1]));
+
+            if(positions[0] / 5 == positions[1] / 5)
             {
-                binPower = (int)Mathf.Pow(2, power);
-                if (letterValue / binPower == 1)
+                Level4EncryptedWord += (positions[0] / 5 == (positions[0] + 1) / 5) ? encryptionTable[positions[0] + 1] : encryptionTable[positions[0] - 4];
+                Level4EncryptedWord += (positions[1] / 5 == (positions[1] + 1) / 5) ? encryptionTable[positions[1] + 1] : encryptionTable[positions[1] - 4];
+            }
+            else if(positions[0] % 5 == positions[1] % 5)
+            {
+                Level4EncryptedWord += (positions[0] + 5 <= 24) ? encryptionTable[positions[0] + 5] : encryptionTable[positions[0] - 20];
+                Level4EncryptedWord += (positions[1] + 5 <= 24) ? encryptionTable[positions[1] + 5] : encryptionTable[positions[1] - 20];
+            }
+            else
+            {
+                if(positions[0] % 5 < positions[1] % 5)
                 {
-                    Level4EncryptedWord += "1";
-                    letterValue -= binPower;
+                    move = (positions[1] % 5) - (positions[0] % 5);
+                    Level4EncryptedWord += encryptionTable[positions[0] + move];
+                    Level4EncryptedWord += encryptionTable[positions[1] - move];
                 }
                 else
-                    Level4EncryptedWord += "0";
-
-                power--;
+                {
+                    move = (positions[0] % 5) - (positions[1] % 5);
+                    Level4EncryptedWord += encryptionTable[positions[0] - move];
+                    Level4EncryptedWord += encryptionTable[positions[1] + move];
+                }
             }
-
-            index++;
-            if (index <= Level4Answer.Length - 1)
-                Level4EncryptedWord += "_";
+            index += 2;
         }
-        PlainWords.XORCodes--;
-        CipheredTextLength.text = Level4Answer.Length.ToString();
-        XORRoutine = XORLightsActivation();     //The same as above case
-        StartCoroutine(XORRoutine);*/
+        PlainWords.PlayFairCodes--;
     }
 
     public void VigenereAlgorithm()
     {
-        int chosenKey = Random.Range(0, 15);
-        keyColorID = chosenKey / 3;
         int index = 0;
         int keyIndex = 0;
         char letter;
@@ -299,9 +387,7 @@ public class TablesUserSystem : MonoBehaviour
             keyIndex = (keyIndex + 1) >= keyWords[chosenKey].Length ? 0 : (keyIndex + 1);
             index++;
         }
-        //PlainWords.VigenereCodes--;
-        KeyIndicator.color = KeyColors[keyColorID];
-        CipheredText.text = Level4EncryptedWord;
+        PlainWords.VigenereCodes--;
     }
 
     public void SendSolutionReport()
@@ -360,7 +446,7 @@ public class TablesUserSystem : MonoBehaviour
         yield break;
     }
 
-    private IEnumerator ShowVigenereError()
+    private IEnumerator ShowError()
     {
         while (hideTimer > 0)
         {
@@ -368,7 +454,13 @@ public class TablesUserSystem : MonoBehaviour
             hideTimer--;
         }
 
-        VigenereError.gameObject.SetActive(false);
+        if (ActiveTool == EncryptTools.Vigenere)
+            VigenereError.gameObject.SetActive(false);
+        else if (ActiveTool == EncryptTools.PlayFair)
+            PlayFairError.gameObject.SetActive(false);
+        //else if (ActiveTool == EncryptTools.ADFVGX)
+        //    ADFVGXError.gameObject.SetActive(false);
+
         yield break;
     }
 

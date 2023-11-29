@@ -5,11 +5,11 @@ using UnityEngine;
 public class AccessEnigmaScript : MonoBehaviour
 {
     public static int decryptedMessagesLevelOne;
-    public static bool Level1Completed = true;
+    public static bool Level1Completed;
     public static int decryptedMessagesLevelTwo;
-    public static bool Level2Completed = true;
+    public static bool Level2Completed;
     public static int decryptedMessagesLevelThree;
-    public static bool Level3Completed = true;
+    public static bool Level3Completed;
     public static int decryptedMessagesLevelFour;
     public static bool Level4Completed;
 

@@ -60,8 +60,8 @@ public class MainMenuScript : MonoBehaviour
 
         //
         //
-        //
-        //
+        PlainWords.PlayFairCodes = 2;
+        PlainWords.VigenereCodes = 2;
 
         AccessEnigmaScript.decryptedMessagesLevelOne = 0;
         AccessEnigmaScript.Level1Completed = false;

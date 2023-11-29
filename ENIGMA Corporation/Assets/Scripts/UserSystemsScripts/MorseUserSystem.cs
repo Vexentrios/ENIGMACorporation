@@ -75,7 +75,19 @@ public class MorseUserSystem : MonoBehaviour
         if (Level3Answer == null || Level3Answer == "")
             Morse_XOR_EncryptFunction();
         else
-            CipheredTextLength.text = Level3EncryptedWord.Length.ToString();
+        {
+            CipheredTextLength.text = Level3Answer.Length.ToString();
+            if(usedMethod == encryptingMethods.Morse)
+            {
+                MorseRoutine = MorseLightsActivation();
+                StartCoroutine(MorseRoutine);
+            }
+            else
+            {
+                XORRoutine = XORLightsActivation();
+                StartCoroutine(XORRoutine);
+            }
+        }
     }
 
     //########################################################################################

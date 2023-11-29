@@ -40,12 +40,12 @@ public class PlainWords : MonoBehaviour
     [Header("------------------------------------------------------")]
 
     public static int ADFVGXCodes;
-    public static int PlayfairCodes;
+    public static int PlayFairCodes;
     public static int VigenereCodes;
 
     public static List<string> ADFVGX_PlayFair_Vigenere_WordDataBase = new List<string> {};
 
-    public static List<string> ADFVGX_PlayFair_Vigenere_Words = new List<string> { };
+    public static List<string> ADFVGX_PlayFair_Vigenere_Words = new List<string> {};
 
     //public static List<string> PLACEHOLDER = new List<string> { };
 }
