@@ -31,9 +31,8 @@ public class CaesarUserSystem : MonoBehaviour
     [SerializeField] private Image CaesarAppIcon;
     [SerializeField] private Image AtBashAppIcon;
 
-    public static string wordCaesar_AtBash;     //Answer which need to be given
-    public static string caesar_atbashWord;     //Encrypted answer word container
-    public static int decryptedMessagesLevelTwo = 0;
+    public static string Level2Answer;     //Answer which need to be given
+    public static string Level2EncryptedWord;     //Encrypted answer word container
     int goal = 10;
     int hideTimer;
 
@@ -49,13 +48,13 @@ public class CaesarUserSystem : MonoBehaviour
         AtBashAppIcon.GetComponent<Button>().enabled = true;
         CaesarApp.SetActive(false);
         AtBashApp.SetActive(false);
-        ProgressBar.value = (float)decryptedMessagesLevelTwo / (float)goal;
+        ProgressBar.value = (float)AccessEnigmaScript.decryptedMessagesLevelTwo / (float)goal;
         ProgressValue.text = Mathf.RoundToInt(ProgressBar.value * 100).ToString() + "%";
 
-        if (wordCaesar_AtBash == null || wordCaesar_AtBash == "")
+        if (Level2Answer == null || Level2Answer == "")
             Caesar_AtBash_EncryptFunction();
         else
-            CipheredText.text = caesar_atbashWord.ToUpper();
+            CipheredText.text = Level2EncryptedWord.ToUpper();
     }
 
     public void OpenCaesarSpinner()
@@ -86,12 +85,12 @@ public class CaesarUserSystem : MonoBehaviour
     {
         ///THIS CONTENT IS MOVED TO FINAL VERSION
         //if (PlainWords.Caesar_AtBash_Words.Count > 0)
-        if (PlainWords.Caesar_AtBash_Words.Count > 0 && decryptedMessagesLevelTwo != goal)
+        if (PlainWords.Caesar_AtBash_Words.Count > 0 && AccessEnigmaScript.decryptedMessagesLevelTwo != goal)
         {
             int number = Random.Range(0, PlainWords.Caesar_AtBash_Words.Count);
-            wordCaesar_AtBash = PlainWords.Caesar_AtBash_Words[number].ToUpper();
+            Level2Answer = PlainWords.Caesar_AtBash_Words[number].ToUpper();
             PlainWords.Caesar_AtBash_Words.RemoveAt(number);
-            caesar_atbashWord = "";
+            Level2EncryptedWord = "";
 
             if (PlainWords.AtBashCodes > 0 && PlainWords.CaesarCodes > 0)
             {
@@ -120,17 +119,17 @@ public class CaesarUserSystem : MonoBehaviour
         char letter;
 
         int index = 0;
-        while (index <= wordCaesar_AtBash.Length - 1)
+        while (index <= Level2Answer.Length - 1)
         {
-            letter = (char)(wordCaesar_AtBash[index] + key);
+            letter = (char)(Level2Answer[index] + key);
             if (letter >= 91)
-                caesar_atbashWord += ((char)(letter - 26)).ToString();
+                Level2EncryptedWord += ((char)(letter - 26)).ToString();
             else
-                caesar_atbashWord += letter.ToString();
+                Level2EncryptedWord += letter.ToString();
             index++;
         }
         PlainWords.CaesarCodes--;
-        CipheredText.text = caesar_atbashWord.ToUpper();
+        CipheredText.text = Level2EncryptedWord.ToUpper();
     }
 
     public void AtBashAlgorithm()
@@ -138,39 +137,39 @@ public class CaesarUserSystem : MonoBehaviour
         char letter;
 
         int index = 0;
-        while (index <= wordCaesar_AtBash.Length - 1)
+        while (index <= Level2Answer.Length - 1)
         {
-            letter = (char)(90 - (wordCaesar_AtBash[index] - 65));
-            caesar_atbashWord += letter.ToString();
+            letter = (char)(90 - (Level2Answer[index] - 65));
+            Level2EncryptedWord += letter.ToString();
             index++;
         }
         PlainWords.AtBashCodes--;
-        CipheredText.text = caesar_atbashWord.ToUpper();
+        CipheredText.text = Level2EncryptedWord.ToUpper();
     }
 
     public void SendSolutionReport()
     {
-        if (Solution.text.ToUpper() == wordCaesar_AtBash)
+        if (Solution.text.ToUpper() == Level2Answer)
         {
-            Caesar_AtBash_EncryptFunction();
             hideTimer = 2;
             StartCoroutine(ShowResult());
             ResultMessage.color = Color.green;
             ResultMessage.text = "Correct";
-            decryptedMessagesLevelTwo++;
-            if (decryptedMessagesLevelTwo <= goal)
+            AccessEnigmaScript.decryptedMessagesLevelTwo++;
+            Caesar_AtBash_EncryptFunction();
+            if (AccessEnigmaScript.decryptedMessagesLevelTwo <= goal)
             {
-                ProgressBar.value = (float)decryptedMessagesLevelTwo / (float)goal;
+                ProgressBar.value = (float)AccessEnigmaScript.decryptedMessagesLevelTwo / (float)goal;
                 ProgressValue.text = Mathf.RoundToInt(ProgressBar.value * 100).ToString() + "%";
 
-                if (decryptedMessagesLevelTwo == goal)
+                if (AccessEnigmaScript.decryptedMessagesLevelTwo == goal)
                 {
                     AccessEnigmaScript.Level2Completed = true;
                     AccountPassword.gameObject.SetActive(true);
                 }
 
                 ///THIS CONTENT IS MOVED TO FINAL VERSION
-                //if (decryptedMessagesLevelTwo == goal)
+                //if (AccessEnigmaScript.decryptedMessagesLevelTwo == goal)
                 //{
                 //    PlainWords.CaesarCodes =7;
                 //    PlainWords.AtBashCodes = 3;

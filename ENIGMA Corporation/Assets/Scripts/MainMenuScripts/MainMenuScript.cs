@@ -58,14 +58,18 @@ public class MainMenuScript : MonoBehaviour
         PlainWords.MorseCodes = 3;
         PlainWords.XORCodes = 3;
 
-        //
-        //
-        //
-        //
+        PlainWords.ADFVGX_PlayFair_Vigenere_Words.AddRange(PlainWords.ADFVGX_PlayFair_Vigenere_WordDataBase);
+        PlainWords.ADFVGXCodes = 3;
+        PlainWords.PlayFairCodes = 2;
+        PlainWords.VigenereCodes = 2;
 
+        AccessEnigmaScript.decryptedMessagesLevelOne = 0;
         AccessEnigmaScript.Level1Completed = false;
+        AccessEnigmaScript.decryptedMessagesLevelTwo = 0;
         AccessEnigmaScript.Level2Completed = false;
+        AccessEnigmaScript.decryptedMessagesLevelThree = 0;
         AccessEnigmaScript.Level3Completed = false;
+        AccessEnigmaScript.decryptedMessagesLevelFour = 0;
         AccessEnigmaScript.Level4Completed = false;
 
         AccessEnigmaScript.RookieAccessGranted = false;

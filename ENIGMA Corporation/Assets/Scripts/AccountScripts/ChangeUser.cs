@@ -62,6 +62,9 @@ public class ChangeUser : MonoBehaviour
                 else
                     ShowLoginScreen(PressedAvatar);
                 break;
+            case "CEO":
+                ShowLoginScreen(PressedAvatar);
+                break;
         }
     }
 

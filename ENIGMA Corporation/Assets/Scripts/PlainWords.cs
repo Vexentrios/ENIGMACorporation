@@ -35,6 +35,18 @@ public class PlainWords : MonoBehaviour
     
     public static List<string> XOR_Morse_Words = new List<string> {};
 
+    [Header("------------------------------------------------------")]
+    [Header("ADFVGX, PlayFair and Vigenere Words - Level 4")]
+    [Header("------------------------------------------------------")]
+
+    public static int ADFVGXCodes;
+    public static int PlayFairCodes;
+    public static int VigenereCodes;
+
+    public static List<string> ADFVGX_PlayFair_Vigenere_WordDataBase = new List<string> { "playfair", "caesar", "vigenere", "morse", "atbash", "plaintext", "encryption", "decryption", "ransomware", "breach", "computer", "keyword", "secret", "information", "enigma" };
+
+    public static List<string> ADFVGX_PlayFair_Vigenere_Words = new List<string> {};
+
     //public static List<string> PLACEHOLDER = new List<string> { };
 }
 //"daniel"

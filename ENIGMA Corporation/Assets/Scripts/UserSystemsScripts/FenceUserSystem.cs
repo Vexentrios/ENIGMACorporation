@@ -35,9 +35,8 @@ public class FenceUserSystem : MonoBehaviour
     [SerializeField] private Image FenceAppIcon;
 
     int setFenceLevel;
-    public static string wordFence;         //Answer which need to be given
-    public static string fencedWord;        //Encrypted answer word container
-    public static int decryptedMessagesLevelOne = 0;
+    public static string Level1Answer;         //Answer which need to be given
+    public static string Level1EncryptedWord;        //Encrypted answer word container
     int goal = 7;
     int hideTimer;
 
@@ -52,13 +51,13 @@ public class FenceUserSystem : MonoBehaviour
         FenceAppIcon.GetComponent<Button>().enabled = true;
         FenceApp.SetActive(false);
         TimePanel.SetActive(false);
-        ProgressBar.value = (float)decryptedMessagesLevelOne / (float)goal; 
+        ProgressBar.value = (float)AccessEnigmaScript.decryptedMessagesLevelOne / (float)goal; 
         ProgressValue.text = Mathf.RoundToInt(ProgressBar.value * 100).ToString() + "%";
 
-        if (wordFence == null || wordFence == "")
+        if (Level1Answer == null || Level1Answer == "")
             FenceEncryptFunction();
         else
-            CipheredText.text = fencedWord.ToUpper();
+            CipheredText.text = Level1EncryptedWord.ToUpper();
     }
 
     public void OpenFenceBreaker()
@@ -87,13 +86,13 @@ public class FenceUserSystem : MonoBehaviour
     {
         ///THIS CONTENT IS MOVED TO FINAL VERSION
         //if(PlainWords.FenceWords.Count > 0)
-        if (PlainWords.FenceWords.Count > 0 && decryptedMessagesLevelOne != goal)
+        if (PlainWords.FenceWords.Count > 0 && AccessEnigmaScript.decryptedMessagesLevelOne != goal)
         {
             int number = Random.Range(0, PlainWords.FenceWords.Count);
-            wordFence = PlainWords.FenceWords[number];
+            Level1Answer = PlainWords.FenceWords[number];
             PlainWords.FenceWords.RemoveAt(number);
             int randomLevel = Random.Range(3, 7);
-            fencedWord = "";
+            Level1EncryptedWord = "";
 
             int index;
             int[] jump = { (randomLevel - 3) + randomLevel, -1 };
@@ -103,9 +102,9 @@ public class FenceUserSystem : MonoBehaviour
             for (int f = 0; f < randomLevel; f++)
             {
                 index = f;
-                while (index <= wordFence.Length - 1)
+                while (index <= Level1Answer.Length - 1)
                 {
-                    fencedWord += wordFence[index];
+                    Level1EncryptedWord += Level1Answer[index];
                     index += jump[jumpOrder] + 1;
                     if (swap)
                         jumpOrder = (jumpOrder == 0 ? 1 : 0);
@@ -121,7 +120,7 @@ public class FenceUserSystem : MonoBehaviour
                     jumpOrder = 1;
                 }
             }
-            CipheredText.text = fencedWord.ToUpper();
+            CipheredText.text = Level1EncryptedWord.ToUpper();
         }
         else
         {
@@ -146,7 +145,7 @@ public class FenceUserSystem : MonoBehaviour
             for (int f = 0; f < setFenceLevel; f++)
             {
                 for (int tab = 0; tab < f; tab++)
-                    fenceVisual += "\t\t";
+                    fenceVisual += "  ";
                 index = f;
                 while (index <= drawForWord.Length - 1)
                 {
@@ -155,7 +154,7 @@ public class FenceUserSystem : MonoBehaviour
                     index += jump[jumpOrder] + 1;
                     if(index <= drawForWord.Length - 1)
                         for (int tab = 0; tab < jump[jumpOrder] + 1; tab++)
-                            fenceVisual += "\t\t";
+                            fenceVisual += tab == 0 ? " " : "  ";
                     if (swap)
                         jumpOrder = (jumpOrder == 0 ? 1 : 0);
                 }
@@ -179,20 +178,20 @@ public class FenceUserSystem : MonoBehaviour
 
     public void SendSolutionReport()
     {
-        if (Solution.text.ToLower() == wordFence)
+        if (Solution.text.ToLower() == Level1Answer)
         {
-            FenceEncryptFunction();
             hideTimer = 2;
             StartCoroutine(ShowResult());
             ResultMessage.color = Color.green;
             ResultMessage.text = "Correct";
-            decryptedMessagesLevelOne++;
-            if (decryptedMessagesLevelOne <= goal)
+            AccessEnigmaScript.decryptedMessagesLevelOne++;
+            FenceEncryptFunction();
+            if (AccessEnigmaScript.decryptedMessagesLevelOne <= goal)
             {
-                ProgressBar.value = (float)decryptedMessagesLevelOne / (float)goal;
+                ProgressBar.value = (float)AccessEnigmaScript.decryptedMessagesLevelOne / (float)goal;
                 ProgressValue.text = Mathf.RoundToInt(ProgressBar.value * 100).ToString() + "%";
 
-                if (decryptedMessagesLevelOne == goal)
+                if (AccessEnigmaScript.decryptedMessagesLevelOne == goal)
                 {
                     AccessEnigmaScript.Level1Completed = true;
                     AccountPassword.gameObject.SetActive(true);
