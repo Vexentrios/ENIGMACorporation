@@ -363,16 +363,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: H
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &35125481
@@ -1158,16 +1158,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Y
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &127141546
@@ -1956,16 +1956,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: L
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &237058402
@@ -2090,16 +2090,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: A
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &255046410
@@ -2304,16 +2304,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: V
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &273826195
@@ -2598,16 +2598,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: S
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &288592974
@@ -3049,16 +3049,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: U
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &309058149
@@ -4529,16 +4529,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: T
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &462085092
@@ -4877,16 +4877,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: J
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &528063400
@@ -5054,16 +5054,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: X
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &543043286
@@ -5188,16 +5188,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: W
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &547360011
@@ -5709,9 +5709,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 753527099}
         m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6431,16 +6431,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: K
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &675751739
@@ -6819,16 +6819,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: N
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &729159003
@@ -7143,40 +7143,6 @@ MonoBehaviour:
   - {fileID: 596750721}
   - {fileID: 357620358}
   - {fileID: 828780410}
-  RotorChangePosition:
-  - {fileID: 1708147078}
-  - {fileID: 973914902}
-  - {fileID: 89095947}
-  - {fileID: 519020595}
-  - {fileID: 2132428203}
-  - {fileID: 314761638}
-  Keyboard:
-  - {fileID: 255046409}
-  - {fileID: 1634126557}
-  - {fileID: 864055315}
-  - {fileID: 1155056251}
-  - {fileID: 1575825442}
-  - {fileID: 795737687}
-  - {fileID: 1110625786}
-  - {fileID: 35125480}
-  - {fileID: 2101916751}
-  - {fileID: 528063399}
-  - {fileID: 675751738}
-  - {fileID: 237058401}
-  - {fileID: 1309998022}
-  - {fileID: 729159002}
-  - {fileID: 827015400}
-  - {fileID: 1319450331}
-  - {fileID: 1107214143}
-  - {fileID: 842289793}
-  - {fileID: 288592973}
-  - {fileID: 462085091}
-  - {fileID: 309058148}
-  - {fileID: 273826194}
-  - {fileID: 547360010}
-  - {fileID: 543043285}
-  - {fileID: 127141545}
-  - {fileID: 1239558600}
   SendAnswer: {fileID: 570780647}
   SwapPanels: {fileID: 1366566315}
   EnigmaScreen: {fileID: 1628857904}
@@ -7494,16 +7460,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: F
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &795737688
@@ -7976,16 +7942,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Q
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &827015401
@@ -8284,16 +8250,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: R
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &842289794
@@ -8418,16 +8384,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: C
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &864055316
@@ -9721,16 +9687,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Q
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1107214144
@@ -9855,16 +9821,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: G
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1110625787
@@ -10145,16 +10111,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: D
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1155056252
@@ -10725,16 +10691,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Z
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1239558601
@@ -11595,16 +11561,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: M
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1309998023
@@ -11729,16 +11695,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: P
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1319450332
@@ -13074,16 +13040,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: E
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1575825443
@@ -13569,16 +13535,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: B
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1634126558
@@ -17471,16 +17437,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TablesUserSystem, Assembly-CSharp
-        m_MethodName: SendSolutionReport
-        m_Mode: 1
+      - m_Target: {fileID: 753527103}
+        m_TargetAssemblyTypeName: EnigmaLevelScripts, Assembly-CSharp
+        m_MethodName: EnigmaMachine
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: I
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2101916752
