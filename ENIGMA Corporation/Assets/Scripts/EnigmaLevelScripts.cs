@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EnigmaLevelScripts : MonoBehaviour
 {
@@ -36,6 +37,7 @@ public class EnigmaLevelScripts : MonoBehaviour
     [Header("-------------------------------------------------")]
     [Header("Other")]
     [SerializeField] private Image[] ActiveRotors = new Image[3];
+    [SerializeField] private Sprite[] RotorsSprites = new Sprite[6];
 
     int[] index = new int[2];
     List<char> switchBoard = new List<char> {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
@@ -54,21 +56,25 @@ public class EnigmaLevelScripts : MonoBehaviour
     int[] chosenRotor = new int[3];
     int[] currentRotorPosition = new int[3];
     bool locked;
+    bool instructionsOnScreen;
     int hideTimer;
 
     void Start()
     {
+        EnigmaPanel.SetActive(true);
         InstructionsPanel.SetActive(false);
+        instructionsOnScreen = false;
         RotorsOpened.SetActive(false);
         RotorsClosed.SetActive(true);
         for (int i = 0; i < 3; i++)
         {
             RotorsChoiceButtons[i].interactable = false;
             chosenRotor[i] = -1;
+            ActiveRotors[i].sprite = RotorsSprites[0];
         }
         CheckKeyboardBlockade();
         ClearSwitchboard();
-        EncryptedFinalWord.text = "";
+        EncryptedFinalWord.text = "MUAKVJFWEVDNTAUAQ";
     }
 
     //########################################################################################
@@ -103,6 +109,7 @@ public class EnigmaLevelScripts : MonoBehaviour
         for (int o = 0; o < 3; o++)
             RotorsChoiceButtons[rotorLine * 3 + o].gameObject.SetActive(false);
 
+        ActiveRotors[rotorPosition].sprite = RotorsSprites[rotorLine];
         RotorsChoiceButtons[rotorPosition].interactable = true;
         RotorsChoiceButtons[pressed].interactable = false;
         RotorsChoiceButtons[pressed].gameObject.SetActive(true);
@@ -116,6 +123,7 @@ public class EnigmaLevelScripts : MonoBehaviour
         int rotorLine = chosenRotor[pressed] + 1;
         RotorsChoiceButtons[pressed].interactable = false;
         chosenRotor[pressed] = -1;
+        ActiveRotors[pressed].sprite = RotorsSprites[0];
         for (int o = 0; o < 3; o++)
         {
             RotorsChoiceButtons[rotorLine * 3 + o].gameObject.SetActive(true);
@@ -244,7 +252,7 @@ public class EnigmaLevelScripts : MonoBehaviour
     }
 
     //########################################################################################
-    //###########################[Vigenere Cipher Part]#######################################
+    //############################[ENIGMA MACHINE Part]#######################################
     //########################################################################################
 
     public void EnigmaMachine(string pressedKey)
@@ -265,53 +273,44 @@ public class EnigmaLevelScripts : MonoBehaviour
         char letter = pressedKey[0];
         int posIndexer;
         char result = (char)(switchBoard.IndexOf(letter) + 65);
-        Debug.Log(result);
 
         for (int ent = 2; ent >= 0; ent--)
         {
             //Enter Rotor from Right to Left
             result = RotorsAlphabets[chosenRotor[ent]][(result - 65 + currentRotorPosition[ent]) % 26];
-            Debug.Log(("Right: ", result));
             //Leave Rotor from Right to Left
             posIndexer = (result - 65 - currentRotorPosition[ent]) % 26;
             if (posIndexer < 0)
                 posIndexer = 26 + posIndexer;
             result = alphabetDefault[posIndexer];
-            Debug.Log(("Left: ", result));
         }
 
         //(Reflector) Revert Enter and Leave
         posIndexer = (revertRoller[result - 65] - 65);
         //result = revertRoller[result - 65];
-        Debug.Log(("Revert: ", posIndexer));
 
         for (int leav = 0; leav < 3; leav++)
         {
             //Enter Rotor from Left to Right
             result = alphabetDefault[(posIndexer + currentRotorPosition[leav]) % 26];
-            Debug.Log(("Leave: ", result));
             //Leave Rotor from Left to Right
             posIndexer = (RotorsAlphabets[chosenRotor[leav]].IndexOf(result) - currentRotorPosition[leav]) % 26;
             if (posIndexer < 0)
                 posIndexer = 26 + posIndexer;
-            Debug.Log(("Right: ", posIndexer));
         }
 
         result = switchBoard[posIndexer];
-        Debug.Log(("Cabel Back:", result));
-        Debug.Log(result);
         EnigmaScreen.text += result.ToString();
     }
     
     public void SendSolutionReport()
     {
-        if (AnswerField.text.ToLower() == "TEST")
+        if (AnswerField.text.ToUpper() == "ENIGMACORPORATION")
         {
             hideTimer = 2;
             StartCoroutine(ShowResult());
             ResultMessage.color = Color.green;
             ResultMessage.text = "Correct";
-            
         }
         else
         {
@@ -336,6 +335,23 @@ public class EnigmaLevelScripts : MonoBehaviour
         }
 
         ResultMessage.gameObject.SetActive(false);
+        SceneManager.LoadSceneAsync("EndGameScreen");
         yield break;
+    }
+
+    public void SwapPanel()
+    {
+        if(instructionsOnScreen)
+        {
+            EnigmaPanel.SetActive(true);
+            InstructionsPanel.SetActive(false);
+            instructionsOnScreen = false;
+        }
+        else
+        {
+            EnigmaPanel.SetActive(false);
+            InstructionsPanel.SetActive(true);
+            instructionsOnScreen = true;
+        }
     }
 }

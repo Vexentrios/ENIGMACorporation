@@ -47,6 +47,4 @@ public class PlainWords : MonoBehaviour
 
     public static List<string> ADFVGX_PlayFair_Vigenere_Words = new List<string> {};
 
-    //public static List<string> PLACEHOLDER = new List<string> { };
 }
-//"daniel"
