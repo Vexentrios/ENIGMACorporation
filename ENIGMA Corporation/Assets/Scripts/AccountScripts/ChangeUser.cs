@@ -18,13 +18,17 @@ public class ChangeUser : MonoBehaviour
     [SerializeField] private Text PasswordMessage;
     [SerializeField] private Text RookiePasswordMessage;
 
-    public int hideTimer = 0;
-    public string user;
+    [SerializeField] private Button EnigmaProtocolButton;
+
+    int hideTimer = 0;
+    string user;
 
     void Start()
     {
         if (AccessEnigmaScript.RookieAccessGranted != true)
             RookiePasswordMessage.gameObject.SetActive(true);
+        if (AccessEnigmaScript.Level4Completed == true)
+            EnigmaProtocolButton.gameObject.SetActive(true);
 
         AllUsersPanel.SetActive(true);
         ChosenUserPanel.SetActive(false);
@@ -119,6 +123,9 @@ public class ChangeUser : MonoBehaviour
             StopCoroutine(ShowWarning());
         }
     }
+
+    public void FinalLevelButton() =>
+        SceneManager.LoadSceneAsync("ENIGMA_Scene");
 
     private IEnumerator ShowWarning()
     {

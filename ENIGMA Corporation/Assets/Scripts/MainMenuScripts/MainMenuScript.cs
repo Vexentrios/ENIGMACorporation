@@ -12,6 +12,7 @@ public class MainMenuScript : MonoBehaviour
     [SerializeField] private GameObject MainPanel;
     [SerializeField] private GameObject GamePanel;
     [SerializeField] private GameObject SettingsPanel;
+    [SerializeField] private GameObject CreditsPanel;
 
     [Header("------------------------------------------------------")]
 
@@ -36,6 +37,7 @@ public class MainMenuScript : MonoBehaviour
         MainPanel.SetActive(true);
         GamePanel.SetActive(false);
         SettingsPanel.SetActive(false);
+        CreditsPanel.SetActive(false);
     }
 
     public void NewGameIntroduction()
@@ -86,9 +88,18 @@ public class MainMenuScript : MonoBehaviour
         MainPanel.SetActive(false);
     }
 
-    public void BackToMenu()
+    public void ShowCredits()
     {
-        SettingsPanel.SetActive(false);
+        CreditsPanel.SetActive(true);
+        MainPanel.SetActive(false);
+    }
+
+    public void BackToMenu(int panel)
+    {
+        if(panel == 0)
+            SettingsPanel.SetActive(false);
+        else if(panel == 1)
+            CreditsPanel.SetActive(false);
         MainPanel.SetActive(true);
     }
 

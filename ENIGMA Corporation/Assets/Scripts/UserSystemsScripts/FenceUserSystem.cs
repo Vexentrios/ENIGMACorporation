@@ -35,7 +35,7 @@ public class FenceUserSystem : MonoBehaviour
     [SerializeField] private Image FenceAppIcon;
 
     int setFenceLevel;
-    public static string Level1Answer;         //Answer which need to be given
+    public static string Level1Answer;               //Answer which need to be given
     public static string Level1EncryptedWord;        //Encrypted answer word container
     int goal = 7;
     int hideTimer;
