@@ -1,4 +1,4 @@
-# EncryptionCorporation
+# ENIGMA Corporation
 A small adventure-educational game about ciphers (Vigenere, Caesar, etc.)
 On each level You need to solve what word has been encrypted, but luckly for You, there are tools, which You may use.
 Also a piece of paper may be helpful too. _(Just saying)_
