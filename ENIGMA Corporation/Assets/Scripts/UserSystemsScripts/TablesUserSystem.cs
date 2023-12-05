@@ -13,6 +13,9 @@ public class TablesUserSystem : MonoBehaviour
     [SerializeField] private GameObject VigenereApp;
     [SerializeField] private GameObject PlayFairApp;
     [SerializeField] private GameObject ADFVGXApp;
+    [SerializeField] private GameObject ADFVGXInstructionPanel;
+    [SerializeField] private GameObject PlayFairInstructionPanel;
+    [SerializeField] private GameObject VigenereInstructionPanel;
     [Header("-------------------------------------------------")]
     [Header("Buttons")]
     [SerializeField] private Button VigenereCreateLinesButton;
@@ -74,8 +77,7 @@ public class TablesUserSystem : MonoBehaviour
 
     void Start()
     {
-        if (AccessEnigmaScript.EliteAccessGranted != true)
-            AccessEnigmaScript.EliteAccessGranted = true;
+        AccessEnigmaScript.EliteAccessGranted = true;
 
         if (AccessEnigmaScript.Level4Completed == true)
             AccountPassword.gameObject.SetActive(true);
@@ -89,10 +91,20 @@ public class TablesUserSystem : MonoBehaviour
         ProgressBar.value = (float)AccessEnigmaScript.decryptedMessagesLevelFour / (float)goal;
         ProgressValue.text = Mathf.RoundToInt(ProgressBar.value * 100).ToString() + "%";
 
-        if (Level4Answer == null || Level4Answer == "")
-            ADFVGX_PlayFair_Vigenere_EncryptFunction();
+        if (!AccessEnigmaScript.Level4Completed)
+        {
+            if (Level4Answer == null || Level4Answer == "")
+                ADFVGX_PlayFair_Vigenere_EncryptFunction();
+            else
+                CipheredText.text = Level4EncryptedWord.ToString();
+        }
         else
-            CipheredText.text = Level4EncryptedWord.ToString();
+        {
+            CipheredText.text = "N/A";
+            KeyIndicator.color = KeyColors[5];
+            Solution.enabled = false;
+            SolveReportButton.enabled = false;
+        }
     }
 
     public bool TestEnteredKey(string key)
@@ -106,6 +118,24 @@ public class TablesUserSystem : MonoBehaviour
             }
         return correct;
     }
+
+    public void ShowADFVGXInstruction() =>
+        ADFVGXInstructionPanel.SetActive(true);
+
+    public void HideADFVGXInstruction() =>
+        ADFVGXInstructionPanel.SetActive(false);
+
+    public void ShowPlayFairInstruction() =>
+        PlayFairInstructionPanel.SetActive(true);
+
+    public void HidePlayFairInstruction() =>
+        PlayFairInstructionPanel.SetActive(false);
+
+    public void ShowVigenereInstruction() =>
+        VigenereInstructionPanel.SetActive(true);
+
+    public void HideVigenereInstruction() =>
+        VigenereInstructionPanel.SetActive(false);
 
     //########################################################################################
     //##############################[ADFVGX Cipher Part]######################################
@@ -129,16 +159,29 @@ public class TablesUserSystem : MonoBehaviour
     public void GenerateADFVGX()
     {
         string ADKey = ADFVGXKey.text.ToUpper();
+        int indexer;
         ADFVGXTableVisual.text = "";
         if (ADKey.Length > 0)
             if (TestEnteredKey(ADKey))
             {
-                string allSymbolsTable = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+                string allSymbolsTable = "A1B2C3D4E5F6G7H8I9J0KLMNOPQRSTUVWXYZ";
                 int lettersInLine = 0;
 
                 while (ADKey.Length > 0)
                 {
                     ADFVGXTableVisual.text += ADKey[0];
+                    if(ADKey[0] >= 65 && ADKey[0] <= 74)
+                    {
+                        if (lettersInLine % 6 == 5)
+                            ADFVGXTableVisual.text += "\n";
+                        else
+                            ADFVGXTableVisual.text += " ";
+                        lettersInLine++;
+
+                        indexer = allSymbolsTable.IndexOf(ADKey[0]) + 1;
+                        ADFVGXTableVisual.text += allSymbolsTable[indexer];
+                        allSymbolsTable = allSymbolsTable.Replace(ADFVGXTableVisual.text[ADFVGXTableVisual.text.Length - 1].ToString(), "");
+                    }
                     allSymbolsTable = allSymbolsTable.Replace(ADKey[0].ToString(), "");
                     ADKey = ADKey.Replace(ADKey[0].ToString(), "");
 
@@ -365,13 +408,21 @@ public class TablesUserSystem : MonoBehaviour
     public void ADFVGXAlgorithm()
     {
         string ADEncKey = keyWords[chosenKey];
-        string allSymbolsTable = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        string allSymbolsTable = "A1B2C3D4E5F6G7H8I9J0KLMNOPQRSTUVWXYZ";
         string encryptionTable = "";
         string answerBuffor = Level4Answer.ToUpper();
+        int indexer;
+        char number;
 
         while (ADEncKey.Length > 0)
         {
             encryptionTable += ADEncKey[0];
+            if (ADEncKey[0] >= 65 && ADEncKey[0] <= 74)
+            {
+                indexer = allSymbolsTable.IndexOf(ADEncKey[0]) + 1;
+                number = allSymbolsTable[indexer];
+                allSymbolsTable = allSymbolsTable.Replace(number.ToString(), "");
+            }
             allSymbolsTable = allSymbolsTable.Replace(ADEncKey[0].ToString(), "");
             ADEncKey = ADEncKey.Replace(ADEncKey[0].ToString(), "");
         }

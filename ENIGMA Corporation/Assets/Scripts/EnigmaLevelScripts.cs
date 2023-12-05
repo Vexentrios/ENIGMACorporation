@@ -74,7 +74,7 @@ public class EnigmaLevelScripts : MonoBehaviour
         }
         CheckKeyboardBlockade();
         ClearSwitchboard();
-        EncryptedFinalWord.text = "MUAKVJFWEVDNTAUAQ";
+        EncryptedFinalWord.text = "ZOWKPRGJUBMHMUUCS";
     }
 
     //########################################################################################

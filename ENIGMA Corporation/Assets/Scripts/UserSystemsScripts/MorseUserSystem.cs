@@ -12,6 +12,8 @@ public class MorseUserSystem : MonoBehaviour
     [Header("Panels")]
     [SerializeField] private GameObject XORApp;
     [SerializeField] private GameObject MorseApp;
+    [SerializeField] private GameObject MorseInstructionPanel;
+    [SerializeField] private GameObject XORInstructionPanel;
     [Header("-------------------------------------------------")]
     [Header("Buttons")]
     [SerializeField] private Button[] MorseSymbolButtons = new Button[12];
@@ -59,8 +61,7 @@ public class MorseUserSystem : MonoBehaviour
 
     void Start()
     {
-        if (AccessEnigmaScript.ProfessionalAccessGranted != true)
-            AccessEnigmaScript.ProfessionalAccessGranted = true;
+        AccessEnigmaScript.ProfessionalAccessGranted = true;
 
         if (AccessEnigmaScript.EliteAccessGranted != true && AccessEnigmaScript.Level3Completed == true)
             AccountPassword.gameObject.SetActive(true);
@@ -72,23 +73,44 @@ public class MorseUserSystem : MonoBehaviour
         ProgressBar.value = (float)AccessEnigmaScript.decryptedMessagesLevelThree / (float)goal;
         ProgressValue.text = Mathf.RoundToInt(ProgressBar.value * 100).ToString() + "%";
 
-        if (Level3Answer == null || Level3Answer == "")
-            Morse_XOR_EncryptFunction();
-        else
+        if (!AccessEnigmaScript.Level3Completed)
         {
-            CipheredTextLength.text = Level3Answer.Length.ToString();
-            if(usedMethod == encryptingMethods.Morse)
-            {
-                MorseRoutine = MorseLightsActivation();
-                StartCoroutine(MorseRoutine);
-            }
+            if (Level3Answer == null || Level3Answer == "")
+                Morse_XOR_EncryptFunction();
             else
             {
-                XORRoutine = XORLightsActivation();
-                StartCoroutine(XORRoutine);
+                CipheredTextLength.text = Level3Answer.Length.ToString();
+                if (usedMethod == encryptingMethods.Morse)
+                {
+                    MorseRoutine = MorseLightsActivation();
+                    StartCoroutine(MorseRoutine);
+                }
+                else
+                {
+                    XORRoutine = XORLightsActivation();
+                    StartCoroutine(XORRoutine);
+                }
             }
         }
+        else
+        {
+            CipheredTextLength.text = "N/A";
+            Solution.enabled = false;
+            SolveReportButton.enabled = false;
+        }        
     }
+
+    public void ShowMorseInstruction() =>
+        MorseInstructionPanel.SetActive(true);
+
+    public void HideMorseInstruction() =>
+        MorseInstructionPanel.SetActive(false);
+
+    public void ShowXORInstruction() =>
+        XORInstructionPanel.SetActive(true);
+
+    public void HideXORInstruction() =>
+        XORInstructionPanel.SetActive(false);
 
     //########################################################################################
     //#############################[Morse Cipher Part]########################################

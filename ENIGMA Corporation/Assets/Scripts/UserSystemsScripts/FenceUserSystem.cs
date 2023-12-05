@@ -11,6 +11,7 @@ public class FenceUserSystem : MonoBehaviour
     [Header("Panels")]
     [SerializeField] private GameObject FenceApp;
     [SerializeField] private GameObject TimePanel;
+    [SerializeField] private GameObject FenceInstructionPanel;
     [Header("-------------------------------------------------")]
     [Header("Buttons")]
     [SerializeField] private Button[] FenceLevelsButton = new Button[4];
@@ -42,8 +43,7 @@ public class FenceUserSystem : MonoBehaviour
 
     void Start()
     {
-        if (AccessEnigmaScript.RookieAccessGranted != true)
-            AccessEnigmaScript.RookieAccessGranted = true;
+        AccessEnigmaScript.RookieAccessGranted = true;
 
         if (AccessEnigmaScript.AmateurAccessGranted != true && AccessEnigmaScript.Level1Completed == true)
             AccountPassword.gameObject.SetActive(true);
@@ -54,10 +54,19 @@ public class FenceUserSystem : MonoBehaviour
         ProgressBar.value = (float)AccessEnigmaScript.decryptedMessagesLevelOne / (float)goal; 
         ProgressValue.text = Mathf.RoundToInt(ProgressBar.value * 100).ToString() + "%";
 
-        if (Level1Answer == null || Level1Answer == "")
-            FenceEncryptFunction();
+        if(!AccessEnigmaScript.Level1Completed)
+        {
+            if (Level1Answer == null || Level1Answer == "")
+                FenceEncryptFunction();
+            else
+                CipheredText.text = Level1EncryptedWord.ToUpper();
+        }
         else
-            CipheredText.text = Level1EncryptedWord.ToUpper();
+        {
+            CipheredText.text = "All Solved";
+            Solution.enabled = false;
+            SolveReportButton.enabled = false;
+        }
     }
 
     public void OpenFenceBreaker()
@@ -74,6 +83,12 @@ public class FenceUserSystem : MonoBehaviour
         FenceApp.SetActive(false);
         FenceAppIcon.GetComponent<Button>().enabled = true;
     }
+
+    public void ShowFenceInstruction() =>
+        FenceInstructionPanel.SetActive(true);
+
+    public void HideFenceInstruction() =>
+        FenceInstructionPanel.SetActive(false);
 
     public void ChangeFenceLevel(int levels)
     {

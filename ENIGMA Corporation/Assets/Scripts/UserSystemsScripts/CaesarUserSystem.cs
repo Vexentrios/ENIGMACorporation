@@ -10,6 +10,8 @@ public class CaesarUserSystem : MonoBehaviour
     [Header("Panels")]
     [SerializeField] private GameObject CaesarApp;
     [SerializeField] private GameObject AtBashApp;
+    [SerializeField] private GameObject AtBashInstructionPanel;
+    [SerializeField] private GameObject CaesarInstructionPanel;
     [Header("-------------------------------------------------")]
     [Header("Buttons")]
     [SerializeField] private Button CloseCaesarAppButton;
@@ -38,8 +40,7 @@ public class CaesarUserSystem : MonoBehaviour
 
     void Start()
     {
-        if (AccessEnigmaScript.AmateurAccessGranted != true)
-            AccessEnigmaScript.AmateurAccessGranted = true;
+        AccessEnigmaScript.AmateurAccessGranted = true;
 
         if (AccessEnigmaScript.ProfessionalAccessGranted != true && AccessEnigmaScript.Level2Completed == true)
             AccountPassword.gameObject.SetActive(true);
@@ -51,10 +52,19 @@ public class CaesarUserSystem : MonoBehaviour
         ProgressBar.value = (float)AccessEnigmaScript.decryptedMessagesLevelTwo / (float)goal;
         ProgressValue.text = Mathf.RoundToInt(ProgressBar.value * 100).ToString() + "%";
 
-        if (Level2Answer == null || Level2Answer == "")
-            Caesar_AtBash_EncryptFunction();
+        if (!AccessEnigmaScript.Level2Completed)
+        {
+            if (Level2Answer == null || Level2Answer == "")
+                Caesar_AtBash_EncryptFunction();
+            else
+                CipheredText.text = Level2EncryptedWord.ToUpper();
+        }
         else
-            CipheredText.text = Level2EncryptedWord.ToUpper();
+        {
+            CipheredText.text = "All Solved";
+            Solution.enabled = false;
+            SolveReportButton.enabled = false;
+        }
     }
 
     public void OpenCaesarSpinner()
@@ -80,6 +90,18 @@ public class CaesarUserSystem : MonoBehaviour
         AtBashApp.SetActive(false);
         AtBashAppIcon.GetComponent<Button>().enabled = true;
     }
+
+    public void ShowAtBashInstruction() =>
+        AtBashInstructionPanel.SetActive(true);
+
+    public void HideAtBashInstruction() =>
+        AtBashInstructionPanel.SetActive(false);
+
+    public void ShowCaesarInstruction() =>
+        CaesarInstructionPanel.SetActive(true);
+
+    public void HideCaesarInstruction() =>
+        CaesarInstructionPanel.SetActive(false);
 
     public void Caesar_AtBash_EncryptFunction()
     {
