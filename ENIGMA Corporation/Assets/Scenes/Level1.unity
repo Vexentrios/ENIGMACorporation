@@ -1586,7 +1586,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This tool allows builds the fence for You. The only two required elements
+  m_Text: This tool allows building the fence for You. The only two required elements
     are to choose fence level and write down word, which You want to draw. Later
     read it like if it would be in one line to decrypt the word.
 --- !u!222 &538196414
@@ -2279,13 +2279,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Encryption by this method require to write down sentence, by putting each
-    sign in different line than previous one. Visual representation of it looks like,
-    bouncing between two static borders. Amount of lines, depends on level of used
-    fence.
-
-    After creating fence, the last step is to write them together, by
-    gathering from left to right, and top to bottom.'
+  m_Text: "Encryption by this method requires to write down sentence, by placing
+    each sign in other line than previous one. Visual representation of it looks
+    like, bouncing between two static borders. Amount of lines, depends on the chosen
+    fence level.\r\nAfter creating fence, the last step is to write them together,
+    by gathering from left to right, and top to bottom.\r"
 --- !u!222 &634137171
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5916,11 +5914,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Decryption requires creating fence placing sings from encrypted message,
-    on correct places of fence, and later read them, like if all would be on same
-    level. Good strategy for it, is to make make some dots on sheet of paper, in
-    fence pattern, and later replace them, writing down encrypted text from left
-    to right, top to bottom.
+  m_Text: Decryption requires creating fence, by placing sings from encrypted message,
+    on correct places of it, and later read them, like if all would be on the same
+    level. Good strategy for it, is to make some dots on sheet of paper, in fence
+    pattern, and later replace them, by writing down encrypted text from left to
+    right, top to bottom.
 --- !u!222 &1927466632
 CanvasRenderer:
   m_ObjectHideFlags: 0

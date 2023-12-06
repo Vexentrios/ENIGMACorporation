@@ -427,9 +427,9 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Encryption and Decryption of AtBash, is technically the same. This cipher
-    use two latin alphabets. One is in normal order [A-Z], and one is in reversed
-    [Z-A]. The trick is in replacing letter in plaintext with it's reversed counterpart
-    (A -> Z; B -> Y; C -> X; etc).
+    uses two Latin alphabets. One is in normal order [A-Z], and one is in reversed
+    [Z-A]. The trick is in replacing letter in plaintext with its reversed counterpart
+    (A -> Z; B -> Y; C -> X; etc.).
 --- !u!222 &169358850
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3971,9 +3971,9 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: This tool has two alphabets. Top one is static and cannot be moved (it's
-    working as original latin alphabet), while bottom one can be moved left/right.
+    working as original Latin alphabet), while bottom one can be moved left/right.
     You just need to find correct KEY and then simply read which encrypted letter
-    is which orignally.
+    is which originally.
 --- !u!222 &1020131171
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4296,11 +4296,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: To Encrypt a message, using this cipher, one's must move whole alpabet
+  m_Text: To Encrypt a message, using this cipher, one's must move whole alphabet
     by certain number, called KEY, and replace plaintext letters with those from
-    moved alphabet. Originally Caesar used key equal to 3 [A ->  D; B -> E; C ->
-    F; etc], but it can be from 1 to 25. Theoretically using key bigger equal or
-    bigger than 26, is equal to [KEY modulo 26].
+    moved alphabet. Originally Caesar used key equal to 3 [A -> D; B -> E; C -> F;
+    etc.], but it can be from 1 to 25. Theoretically using key equal or bigger than
+    26, result is equal to [KEY modulo 26].
 --- !u!222 &1070892559
 CanvasRenderer:
   m_ObjectHideFlags: 0

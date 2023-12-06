@@ -578,20 +578,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'This tool has 4 unique keys, hidden behind names of colors.
-
-    To Decrypt
-    message with help of this tool, You need to input 8 bit combination of zeros
-    and ones, according to color LED glowing at Reports Tab.
-
-    Also color of LED
-    means which Key has been used.
-
-    If amount of digits won''t be 8 You will
-    get [#] mark,
-
-    and if combination is wrong You will get [?] as result to
-    Your notepad.'
+  m_Text: "This tool has 4 unique keys, hidden behind names of colors.\r\nTo Decrypt
+    message with help of this tool, You need to input 8-bit combination of zeros
+    and ones, according to color LED glowing at Reports Tab.\r\nAlso, LED\u2019s
+    color, informs which Key has been used.\r\nIf number of digits won't be 8 You
+    will get [#] mark,\r\nand if combination is wrong You will get [?] as result
+    to Your notepad.\r"
 --- !u!222 &160089431
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7374,25 +7366,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'This tool has 4 buttons rows, with 3 columns each:
-
-    [DOT (.) - short
-    mark]   [DASH (_) - long mark]   [NONE - blank]
-
-    According orange light combination,
-    seen on the Report Tab,
-
-    You need to input correct buttons combination and
-    press [Send to File].
-
-    If letter is coded as not all 4 marks, You need to
-    feel gaps with [None] button.
-
-    Wrong combination returns question mark [?]
-    to notepad.
-
-    Also 3 orange lights, means that message has ended, and will
-    be repeated.'
+  m_Text: "This tool has 4 buttons rows, with 3 columns each:\r\n[DOT (.) - short
+    mark]\t[DASH (_) - long mark]\t[NONE - blank]\r\nBy following orange light combination,
+    seen on the Report Tab,\r\nYou need to input correct buttons combination and
+    press [Send to File].\r\nIf letter is coded as not all 4 marks, You need to feel
+    gaps with [None] button.\r\nWrong combination returns question mark [?] to notepad.\r\nAlso
+    3 orange lights, means that message has ended, and will be repeated.\r"
 --- !u!222 &1069154268
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10831,17 +10810,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Morse Code is a simple system where, all latin letters (and also numbers),
+  m_Text: "Morse Code is a simple system where, all Latin letters (and also numbers),
     are represented by certain combination of dots (short mark) and dashes (long
     marks). Letters mainly are represented by 1 to 4 connected marks, while numbers
-    by 5. Also for languange using more than 26 letters, have been developed coresponding
-    codes too.
-
-    To Encrypt person simply need to send correct combination of
-    marks, and to Decrypt, other person need read them, and convert back to letters.
-
-    Well
-    known is [ . . . ] [ _ _ _] [ . . . ] which stands for SOS.'
+    by 5. Also, for languages using more than 26 letters, have been developed corresponding
+    codes too.\r\nTo Encrypt, person simply need to send correct combination of marks,
+    and to Decrypt, other person need read them, and convert back to letters.\r\nWell
+    known is [ . . . ] [ _ _ _ ] [ . . . ], which stands for SOS.\r"
 --- !u!222 &1740669897
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12370,14 +12345,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'XOR is a simple logic operation/gate where result is true only if both
+  m_Text: "XOR is a simple logic operation/gate where result is true only if both
     inputs are different. XOR Ciphers operates based on this logic. It uses binary
-    representated data (for example A is representated as 65 in ASCII <=> 01000001)
-    and chosen key, and returns encrypted message, based on results generated over
-    all bits.
-
-    To Decrypt obtained message, it simply need to be once again encrypted
-    by the same XOR Key.'
+    represented data (for example A is represented as 65 in ASCII <=> 01000001) and
+    chosen key, and returns encrypted message, based on results generated over all
+    bits.\r\nTo Decrypt obtained message, it simply needs to be once again encrypted
+    by the same XOR Key.\r"
 --- !u!222 &2075803734
 CanvasRenderer:
   m_ObjectHideFlags: 0
